@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- start cooking -->
+
+    <main class="container text-center" id="startUI">
+        <div class="row" id="title-container">
+            <p class="title ">Frying Guru</p>
+        </div>
+        <div class="row">
+            <div class="start-button-wrapper">
+                <a class="custom-button" id="start-button">
+                    <span>START</span>
+                </a>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <!-- frying introduction -->
+
+    <div id="video-container" style="display: none;">
+        <video id="fryingIntro" loop>
+            <source src="/assets//videos/fry_introduction.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="tutorial-container">
+            <p id="tutorial-text">
+                Frying is a quick method of cooking food in heated oil or fat. There are different types of frying. ​
+            </p>
+        </div>
+        <a class="custom-button" id="fry-next-button">
+            <span>NEXT</span>
+        </a>
+    </div>
+
+    <!-- Pick Food -->
+    <main class="container text-center" id="foodPicker" style="display: none;">
+        <div class="row" id="title-container">
+            <p class="food-title ">Pick one of the following</p>
+        </div>
+        <div class="row">
+
+            <div class="col food-item mt-auto" id="eggTofuContainer">
+                <img src="/assets/images/egg_tofu.png" id="eggTofu">
+                <div>
+                    <p class="food-text">Egg Tofu</p>
+                </div>
+            </div>
+
+            <div class="col food-item mt-auto">
+                <img src="/assets/images/smoked_duck.png" id="duckBreast">
+                <div>
+                    <p class="food-text">Smoked Duck Breast​</p>
+                </div>
+            </div>
+            <div class="col food-item mt-auto">
+                <img src="/assets/images/battered_fish.png" id="batteredFish">
+                <div>
+                    <p class="food-text">Battered fish​</p>
+                </div>
+            </div>
+            <div class="col food-item mt-auto">
+                <img src="/assets/images/spinach.png" id="spinach">
+                <div>
+                    <p class="food-text">Spinach​</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <!-- Pick Food -->
+    <div class="container " id="fryFood" style="display: none;">
+        <div class="row text-center">
+            <div class="fry-text-container ">
+                <p id="fry-text">
+                    Select the most suitable frying method based on the criteria
+                </p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col">
+                <img src="/assets/images/egg_tofu.png" id="foodImage" >
+
+            </div>
+            <div class="col">
+
+                <div class="sticky-container">
+                    <div class="sticky-outer">
+                        <div class="sticky">
+                            <svg width="0" height="0">
+                                <defs>
+                                    <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
+                                        <path
+                                            d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
+                                            stroke-linejoin="round" stroke-linecap="square" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <div class="sticky-content">
+                                <p class="sheet-title">
+                                    Criteria
+                                </p>
+                                <p class="sheet-text" id="criteriaText">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="row text-center pan-container">
+            <div class="col pan" id="dryFryingContainer" style="display: none;">
+                <p id="dryFrying">Dry-frying</p>
+            </div>
+            <div class="col pan" id="shallowFryingContainer" style="display: none;">
+                <p id="shallowFrying">Shallow-frying</p>
+            </div>
+            <div class="col pan" id="stirFryingContainer" style="display: none;">
+                <p id="stirFrying">Stir-frying</p>
+            </div>
+            <div class="col pan" id="deepFryingContainer" style="display: none;">
+                <p id="deepFrying">Deep-frying</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="food-video-container" style="display: none;" >
+        <video id="shallowFryTofuVid" style="display: none;">
+            <source src="/assets//videos/shallow_fry_tofu.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video id="dryFryTofuVid" style="display: none;">
+            <source src="/assets//videos/fry_introduction.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <a class="custom-button" id="fry-finish-button" style="display: none;">
+            <span id="fry-button-text"></span>
+        </a>
+    </div>
+
+
+
+    <script src="/js/imports.js"></script>
+</body>
+
+</html>

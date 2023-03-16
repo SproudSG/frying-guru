@@ -1,0 +1,371 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@font-face {
+    font-family: 'TitleFont';
+    src: url('../assets/fonts/chainwhacks-font/Chainwhacks-vm72E.ttf');
+}
+
+@font-face {
+    font-family: 'PoppinsBoldItalic';
+    src: url('../assets/fonts/Poppins/Poppins-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/fonts/Poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'PoppinsLight';
+    src: url('../assets/fonts/Poppins/Poppins-Light.ttf');
+}
+
+
+
+/* ------------------start screen UI-------------------------- */
+#startUI {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    background-image: url(../assets/images/pixel_restaurant.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#title-container {
+    padding-top: 15vh;
+}
+
+.title {
+    color: white;
+    font-family: 'TitleFont', sans-serif;
+    font-size: 10vw;
+    text-shadow: 4px 4px #000000;
+}
+
+.start-button-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-button {
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    padding: 10px 45px;
+    text-decoration: none;
+    font-family: 'PoppinsBoldItalic', sans-serif;
+    font-size: 20px;
+    color: white;
+    background: #862c2c;
+    box-shadow: 4px 4px 0 black;
+}
+
+.custom-button:focus {
+    outline: none;
+}
+
+.custom-button:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.custom-button:active {
+    box-shadow: 2px 2px 0 black;
+    transform: translate(2px, 2px);
+}
+
+@media screen and (max-width: 600px) {
+    .custom-button {
+        min-width: 60px;
+        height: 40px;
+        font-size: 15px;
+
+    }
+
+    #start-button {
+        margin: 200px 45px;
+
+    }
+
+    .food-item>img {
+        width: 200px;
+
+
+    }
+}
+
+
+
+/* ------------------------Frying introduction------------------------------- */
+#video-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+#fryingIntro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+
+}
+
+#fry-next-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+}
+
+#fry-finish-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+}
+
+/* pop up text */
+
+
+
+.tutorial-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
+    color: hsl(200 50% 20%);
+    display: flex;
+    background: hsl(0 0% 100%);
+    box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+    border: 1px solid hsl(0, 0%, 79%);
+    max-width: 80%;
+    padding: 40px;
+    font-family: 'Poppins', cursive;
+
+}
+
+#tutorial-text {
+    font-size: 26px;
+    margin: 0px;
+}
+
+/* ------------------ Food picker -------------------------- */
+#foodPicker {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    background-image: url(../assets/images/kitchen.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.food-title {
+    color: white;
+    font-family: 'TitleFont', sans-serif;
+    font-size: 6vw;
+    text-shadow: 4px 4px #000000;
+    margin-bottom: 10vh;
+}
+
+
+#spinach,
+#batteredFish,
+#duckBreast,
+#eggTofu {
+    width: 300px;
+}
+
+.opacity{
+    opacity: 0.6;
+}
+
+.food-item>img {
+    transition: transform 0.4s ease;
+
+}
+
+.food-item>img:hover {
+    transform: translateY(-10px);
+    scale: 110%;
+    cursor: pointer;
+
+}
+
+.food-text {
+    font-family: 'PoppinsBoldItalic', cursive;
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px #000000;
+
+}
+
+
+/* ------------------ Fry Food -------------------------- */
+.fry-text-container {
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
+    color: hsl(200 50% 20%);
+    background: hsl(0 0% 100%);
+    box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+    border: 1px solid hsl(0, 0%, 79%);
+    max-width: 80%;
+    padding: 20px;
+    font-family: 'Poppins', cursive;
+
+}
+
+#fryFood {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    background-image: url(../assets/images/shallow_fry_tofu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+#fry-text {
+    font-size: 20px;
+    margin: 0px;
+
+}
+
+
+.sheet-title {
+    position: relative;
+    top: 12px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+
+}
+
+.sheet-text {
+    top: 30px;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: left;
+}
+
+
+#foodImage {
+    margin-top: 50px;
+}
+
+/* Some positioning and ratios */
+.sticky-container {
+    min-width: 270px;
+    max-width: 350px;
+
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sticky-outer {
+    display: flex;
+    padding-top: 92.5925926%;
+    position: relative;
+
+    width: 100%;
+}
+
+.sticky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Shadow behind the sticky note */
+.sticky:before {
+    box-shadow: -2px 2px 15px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.25);
+    content: '';
+    width: 90%;
+    left: 5px;
+    height: 83%;
+    position: absolute;
+    top: 30%;
+}
+
+/* The sticky note itself */
+.sticky-content {
+    background: linear-gradient(180deg,
+            rgb(254, 255, 187) 0%,
+            rgb(255, 248, 187) 12%,
+            rgb(240, 241, 170) 75%,
+            rgb(154, 161, 50) 100%);
+    width: 100%;
+    height: 100%;
+
+    font-family: 'PoppinsLight', cursive;
+    font-size: 0.8rem;
+    padding: 10px;
+    clip-path: url(#stickyClip);
+}
+
+.pan-container {
+    margin-top: 100px;
+}
+
+.pan {
+    font-family: 'TitleFont', sans-serif;
+    color: white;
+    font-size: 2vw
+}
+
+.pan p {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pan>p:hover {
+    cursor: pointer;
+}
+
+#tofu-video-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+
+#shallowFryTofuVid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
