@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Page Title</title>
+    <title>Frying Guru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
@@ -13,13 +13,18 @@
     <!-- start cooking -->
 
     <main class="container text-center" id="startUI">
-        <div class="row" id="title-container">
-            <p class="title ">Frying Guru</p>
+        <video id="introOpener" autoplay loop>
+            <source preload="metadata" src="./assets/videos/Intro/intro_opener_coloured.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="row">
+            <img src="./assets/images/UI/Logo.png" class="logo">
         </div>
         <div class="row">
             <div class="start-button-wrapper">
-                <a class="custom-button" id="start-button">
-                    <span>START</span>
+                <a id="start-button">
+                    <img class="default-img" src="./assets/images/UI/Start_Button.png">
+                    <img class="hover-img" src="./assets/images/UI/Start_Button_Hover.png">
                 </a>
             </div>
         </div>
@@ -29,132 +34,114 @@
     <!-- frying introduction -->
 
     <div id="video-container" style="display: none;">
-        <video id="fryingIntro" loop>
-            <source src="./assets/videos/fry_introduction.mp4" type="video/mp4">
+        <video id="fryingIntro" preload="metadata">
+            <source src="./assets/videos/Intro/intro_coloured_sounddesign.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="tutorial-container">
-            <p id="tutorial-text">
-                Frying is a quick method of cooking food in heated oil or fat. There are different types of frying. ​
-            </p>
+        <div class="start-button-wrapper" style="display: none;" id="next-button-container">
+            <a id="fry-next-button">
+                <img class="default-img" src="./assets/images/UI/Next_Button.png">
+                <img class="hover-img" src="./assets/images/UI/Next_Button_Hover.png">
+            </a>
         </div>
-        <a class="custom-button" id="fry-next-button">
-            <span>NEXT</span>
-        </a>
     </div>
 
     <!-- Pick Food -->
-    <main class="container text-center" id="foodPicker" style="display: none;">
-        <div class="row" id="title-container">
-            <p class="food-title ">Pick one of the following</p>
-        </div>
-        <div class="row">
+    <main id="foodPicker" style="display: none;">
+        <audio id="foodPickerAudio" src="./assets/vo/Select ingredient.mp3"></audio>
 
-            <div class="col food-item mt-auto" id="eggTofuContainer">
-                <img src="./assets/images/egg_tofu.png" id="eggTofu">
-                <div>
-                    <p class="food-text">Egg Tofu</p>
-                </div>
-            </div>
+        <img src="./assets/images/UI/Pick_One_Guide.png" class="food-title-image">
 
-            <div class="col food-item mt-auto">
-                <img src="./assets/images/smoked_duck.png" id="duckBreast">
-                <div>
-                    <p class="food-text">Smoked Duck Breast​</p>
-                </div>
-            </div>
-            <div class="col food-item mt-auto">
-                <img src="./assets/images/battered_fish.png" id="batteredFish">
-                <div>
-                    <p class="food-text">Battered fish​</p>
-                </div>
-            </div>
-            <div class="col food-item mt-auto">
-                <img src="./assets/images/spinach.png" id="spinach">
-                <div>
-                    <p class="food-text">Spinach​</p>
-                </div>
-            </div>
-        </div>
+        <svg viewBox="0 0 1920 1080">
+            <image xlink:href="./assets/images/Ingredient/Selection_NoHover.png" class="selection-menu-image"
+                id="selection-image"></image>
+            <!-- tofu -->
+            <rect x="83" y="329" fill="#fff" opacity="0" width="583" height="261" id="eggTofu"
+                onmouseenter="showImage('tofu')" onmouseleave="hideImage()"></rect>
+            <!-- spinach -->
+            <rect x="725" y="144" fill="#fff" opacity="0" width="561" height="286" id="spinach"
+                onmouseenter="showImage('spinach')" onmouseleave="hideImage()"></rect>
+            <!-- fish 1 -->
+            <rect x="1366" y="97" fill="#fff" opacity="0" width="449" height="403" id="batteredFish1"
+                onmouseenter="showImage('batteredFish')" onmouseleave="hideImage()"></rect>
+            <!-- chicken -->
+            <rect x="534" y="623" fill="#fff" opacity="0" width="628" height="310" id="duckBreast"
+                onmouseenter="showImage('duckBreast')" onmouseleave="hideImage()"></rect>
+            <!-- fish 2 -->
+            <rect x="1229" y="490" fill="#fff" opacity="0" width="616" height="330" id="batteredFish2"
+                onmouseenter="showImage('batteredFish')" onmouseleave="hideImage()"></rect>
+        </svg>
+
+        <img id="hover-label" src="#">
+
         </div>
     </main>
 
-    <!-- Pick Food -->
-    <div class="container " id="fryFood" style="display: none;">
-        <div class="row text-center">
-            <div class="fry-text-container ">
-                <p id="fry-text">
-                    Select the most suitable frying method based on the criteria
-                </p>
-            </div>
+    <!-- Pick Frying Method -->
+    <div id="fryFood" style="display: none;">
+        <audio id="fryPickerAudio" src="./assets/vo/Select frying Method.mp3"></audio>
+
+        <img src="./assets/images/UI/Criteria_Tofu.png" id="criteria-image">
+
+        <p id="fry-text">
+            Select the most suitable frying method<br> from below based on the criteria
+        </p>
+        <img src="./assets/images/ET-Selection/ET_Dry Frying_label.png" class="label-image" id="dryfry-label">
+        <img src="./assets/images/ET-Selection/ET_Shallow Frying_label.png" class="label-image" id="shallowfry-label">
+        <img src="./assets/images/ET-Selection/ET_Stir Fry_label.png" class="label-image" id="stirfry-label">
+
+
+        <svg viewBox="0 0 1920 1080">
+            <image width="1920" height="1080" xlink:href="" class="selection-menu-image" id="fry-selection"></image>
+            <!-- Dry Frying -->
+            <rect id="dryFrying" onclick="handleDryFryingClick()" x="184" y="586" fill="#fff" opacity="0" width="511" height="199"
+                onmouseenter="showFryImage('dryFrying')" onmouseleave="hideFryImage()"></rect>
+            <!-- Shallow Frying -->
+            <rect id="shallowFrying" onclick="handleShallowFryingClick()" x="716" y="578" fill="#fff" opacity="0" width="505" height="207"
+                onmouseenter="showFryImage('shallowFrying')" onmouseleave="hideFryImage()"></rect>
+            <!-- Stir Frying -->
+            <rect id="stirFrying" onclick="handleStirFryingClick()" x="1236" y="578" fill="#fff" opacity="0" width="513" height="207"
+                onmouseenter="showFryImage('stirFrying')" onmouseleave="hideFryImage()"></rect>
+
+
+        </svg>
+        <div class="back-button-wrapper" id="back-button-container">
+            <a id="back-button">
+                <img class="default-back" src="./assets/images/UI/Back_Button.png">
+                <img class="hover-back" src="./assets/images/UI/Back_Button_Hover.png">
+            </a>
         </div>
-        <div class="row text-center">
-            <div class="col">
-                <img src="./assets/images/egg_tofu.png" id="foodImage">
-
-            </div>
-            <div class="col">
-
-                <div class="sticky-container">
-                    <div class="sticky-outer">
-                        <div class="sticky">
-                            <svg width="0" height="0">
-                                <defs>
-                                    <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
-                                        <path
-                                            d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
-                                            stroke-linejoin="round" stroke-linecap="square" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <div class="sticky-content">
-                                <p class="sheet-title">
-                                    Criteria
-                                </p>
-                                <p class="sheet-text" id="criteriaText">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-        <div class="row text-center pan-container">
-            <div class="col pan" id="dryFryingContainer" style="display: none;">
-                <p id="dryFrying">Dry-frying</p>
-            </div>
-            <div class="col pan" id="shallowFryingContainer" style="display: none;">
-                <p id="shallowFrying">Shallow-frying</p>
-            </div>
-            <div class="col pan" id="stirFryingContainer" style="display: none;">
-                <p id="stirFrying">Stir-frying</p>
-            </div>
-            <div class="col pan" id="deepFryingContainer" style="display: none;">
-                <p id="deepFrying">Deep-frying</p>
-            </div>
-        </div>
-
     </div>
 
     <div id="food-video-container" style="display: none;">
         <video id="shallowFryTofuVid" style="display: none;">
-            <source src="./assets/videos/shallow_fry_tofu.mp4" type="video/mp4">
+            <source src="./assets/videos/ET-Frying/ET_ShallowFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="dryFryTofuVid" style="display: none;">
-            <source src="./assets/videos/fry_introduction.mp4" type="video/mp4">
+            <source src="./assets/videos/ET-Frying/ET_DryFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="stirFryTofuVid" style="display: none;">
-            <source src="./assets/videos/fry_introduction.mp4" type="video/mp4">
+            <source src="./assets/videos/ET-Frying/ET_StirFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <a class="custom-button" id="fry-finish-button" style="display: none;">
-            <span id="fry-button-text"></span>
-        </a>
+
+     
+
+        <div class="fry-button-wrapper" style="display: none;" id="retry-button-container">
+            <a id="retry-button">
+                <img class="default-img" src="./assets/images/UI/Retry_Button.png">
+                <img class="hover-img" src="./assets/images/UI/Retry_Button_Hover.png">
+            </a>
+        </div>
+
+        <div class="fry-button-wrapper" style="display: none;" id="continue-button-container">
+            <a id="continue-button">
+                <img class="default-img" src="./assets/images/UI/Continue_Button.png">
+                <img class="hover-img" src="./assets/images/UI/Continue_Button_Hover.png">
+            </a>
+        </div>
     </div>
 
 

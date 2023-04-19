@@ -18,27 +18,32 @@
     src: url('../assets/fonts/Poppins/Poppins-Light.ttf');
 }
 
+html {
+    background-color: black;
+}
 
+body {
+    overflow: hidden;
+
+}
 
 /* ------------------start screen UI-------------------------- */
-#startUI {
-    min-width: 100%;
-    min-height: 100%;
+#introOpener {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    min-height: 120%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.logo {
     position: absolute;
-    background-image: url(../assets/images/pixel_restaurant.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#title-container {
-    padding-top: 15vh;
-}
-
-.title {
-    color: white;
-    font-family: 'TitleFont', sans-serif;
-    font-size: 10vw;
-    text-shadow: 4px 4px #000000;
+    width: 50vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
 }
 
 .start-button-wrapper {
@@ -49,47 +54,31 @@
     align-items: center;
 }
 
-.custom-button {
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 60px;
-    display: flex;
-    padding: 10px 45px;
-    text-decoration: none;
-    font-family: 'PoppinsBoldItalic', sans-serif;
-    font-size: 20px;
-    color: white;
-    background: #862c2c;
-    box-shadow: 4px 4px 0 black;
+.default-img,
+.hover-img {
+    position: absolute;
+    width: 20vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 70%);
 }
 
-.custom-button:focus {
-    outline: none;
+.start-button-wrapper a img.hover-img {
+    display: none;
 }
 
-.custom-button:hover {
-    color: white;
+.start-button-wrapper a:hover img.default-img {
+    display: none;
+}
+
+.start-button-wrapper a:hover img.hover-img {
+    display: block;
+    transform: translate(-50%, 60%);
     cursor: pointer;
 }
 
-.custom-button:active {
-    box-shadow: 2px 2px 0 black;
-    transform: translate(2px, 2px);
-}
 
 @media screen and (max-width: 600px) {
-    .custom-button {
-        min-width: 60px;
-        height: 40px;
-        font-size: 15px;
-
-    }
-
-    #start-button {
-        margin: 200px 45px;
-
-    }
 
     .food-item>img {
         width: 200px;
@@ -118,17 +107,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
+    max-width: 100%;
+    min-height: 120%;
 
 }
 
-#fry-next-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
 
-}
 
 #fry-finish-button {
     position: fixed;
@@ -137,60 +121,41 @@
 
 }
 
-/* pop up text */
 
-
-
-.tutorial-container {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
-    color: hsl(200 50% 20%);
-    display: flex;
-    background: hsl(0 0% 100%);
-    box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
-    border: 1px solid hsl(0, 0%, 79%);
-    max-width: 80%;
-    padding: 40px;
-    font-family: 'Poppins', cursive;
-
-}
-
-#tutorial-text {
-    font-size: 26px;
-    margin: 0px;
-}
 
 /* ------------------ Food picker -------------------------- */
 #foodPicker {
     min-width: 100%;
     min-height: 100%;
-    position: absolute;
-    background-image: url(../assets/images/kitchen.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+
 }
 
-.food-title {
-    color: white;
-    font-family: 'TitleFont', sans-serif;
-    font-size: 6vw;
-    text-shadow: 4px 4px #000000;
-    margin-bottom: 10vh;
+.food-title-image {
+    position: fixed;
+    width: 40vw;
+
 }
 
-
-#spinach,
-#batteredFish,
-#duckBreast,
-#eggTofu {
-    width: 300px;
+.selection-menu-image {
+    min-width: 100vw;
 }
 
-.opacity{
-    opacity: 0.6;
+.hover-container {
+    width: 1920px;
+    height: 1080px;
 }
+
+.hover-selection {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    z-index: 1;
+}
+
+rect:hover {
+    cursor: pointer;
+}
+
 
 .food-item>img {
     transition: transform 0.4s ease;
@@ -212,158 +177,122 @@
 
 }
 
+#hover-label {
+    z-index: 1;
+    position: absolute;
+    height: 3vw;
+}
+
 
 /* ------------------ Fry Food -------------------------- */
-.fry-text-container {
-    border-radius: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
-    color: hsl(200 50% 20%);
-    background: hsl(0 0% 100%);
-    box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
-    border: 1px solid hsl(0, 0%, 79%);
-    max-width: 80%;
-    padding: 20px;
-    font-family: 'Poppins', cursive;
 
-}
 
 #fryFood {
     min-width: 100%;
     min-height: 100%;
-    position: absolute;
-    background-image: url(../assets/images/shallow_fry_tofu.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+
 
 }
 
 #fry-text {
-    font-size: 20px;
-    margin: 0px;
+    position: fixed;
+    background-color: #0000008a;
+    padding: 2vw;
+    padding-right: 2vw;
+    border-radius: 1vw;
+    color: white;
+    font-size: 1.5vw;
+    top: 10vw;
+    right: -4vw;
+    width: 35vw;
 
 }
 
 
-.sheet-title {
-    position: relative;
-    top: 12px;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: left;
 
+#criteria-image {
+    position: fixed;
+    padding: 1vw;
+    width: 33vw;
 }
-
-.sheet-text {
-    top: 30px;
-    font-size: 22px;
-    line-height: 27px;
-    text-align: left;
-}
-
 
 #foodImage {
     margin-top: 50px;
 }
 
-/* Some positioning and ratios */
-.sticky-container {
-    min-width: 270px;
-    max-width: 350px;
+.label-image {
+    position: fixed;
+    padding: 1vw;
+    height: 6vw;
+    top: 20vw;
 
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.sticky-outer {
-    display: flex;
-    padding-top: 92.5925926%;
-    position: relative;
-
-    width: 100%;
+#dryfry-label {
+    left: 15vw;
 }
 
-.sticky {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+#shallowfry-label {
+    left: 65vw;
+}
+
+#stirfry-label {
+    left: 42vw;
+}
+
+
+
+.default-back,
+.hover-back {
+    position: fixed;
     bottom: 0;
+    right: 0;
+    width: 20vw;
 }
 
-/* Shadow behind the sticky note */
-.sticky:before {
-    box-shadow: -2px 2px 15px 0 rgba(0, 0, 0, 0.5);
-    background-color: rgba(0, 0, 0, 0.25);
-    content: '';
-    width: 90%;
-    left: 5px;
-    height: 83%;
-    position: absolute;
-    top: 30%;
+.back-button-wrapper a img.hover-back {
+    display: none;
 }
 
-/* The sticky note itself */
-.sticky-content {
-    background: linear-gradient(180deg,
-            rgb(254, 255, 187) 0%,
-            rgb(255, 248, 187) 12%,
-            rgb(240, 241, 170) 75%,
-            rgb(154, 161, 50) 100%);
-    width: 100%;
-    height: 100%;
-
-    font-family: 'PoppinsLight', cursive;
-    font-size: 0.8rem;
-    padding: 10px;
-    clip-path: url(#stickyClip);
+.back-button-wrapper a:hover img.default-back {
+    display: none;
 }
 
-.pan-container {
-    margin-top: 100px;
-}
-
-.pan {
-    font-family: 'TitleFont', sans-serif;
-    color: white;
-    font-size: 2vw
-}
-
-.pan p {
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.pan>p:hover {
+.back-button-wrapper a:hover img.hover-back {
+    display: block;
+    transform: translate(0%, -10%);
     cursor: pointer;
 }
 
-#tofu-video-container {
-    position: fixed;
+
+/*  frying videos */
+
+
+#food-video-container>video {
+    position: absolute;
     top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: transparent;
-    overflow: hidden;
-    height: 100%;
+    left: 50%;
     width: 100%;
+    transform: translate(-50%);
 }
 
-
-#food-video-container > video {
+.fry-button-wrapper{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 100%;
+}
+
+.fry-button-wrapper a img.hover-img {
+    display: none;
+}
+
+.fry-button-wrapper a:hover img.default-img {
+    display: none;
+}
+
+.fry-button-wrapper a:hover img.hover-img {
+    display: block;
+    transform: translate(-50%, 60%);
+    cursor: pointer;
 }
