@@ -81,7 +81,10 @@
     <div id="fryFood" style="display: none;">
         <audio id="fryPickerAudio" src="./assets/vo/Select frying Method.mp3"></audio>
 
-        <img src="./assets/images/UI/Criteria_Tofu.png" id="criteria-image">
+        <img src="./assets/images/ET-Selection/Criteria_Tofu.png" class="criteria-image" id="ET-criteria-image" style="display:none">
+        <img src="./assets/images/S-Selection/Spinach_Criteria_Text_Box.png" class="criteria-image" id="S-criteria-image" style="display:none">
+        <img src="./assets/images/BF-Selection/Battered_Fish_Criteria_Text_Box.png" class="criteria-image" id="BF-criteria-image" style="display:none">
+        <img src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Criteria_Text_Box.png"  class="criteria-image" id="SDB-criteria-image" style="display:none">
 
         <p id="fry-text">
             Select the most suitable frying method<br> from below based on the criteria
@@ -162,12 +165,20 @@
             <source src="./assets/videos/ET-Frying/ET_StirFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <video id="tofuSummaryVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/ET-Frying/ET - shallow frying summary_finalcut_v001.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <video id="deepFrySDBVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/SDB-Frying/SDB-DeepFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="dryFrySDBVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/SDB-Frying/SDB-DryFryFull.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video id="SDBSummaryVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/SDB-Frying/SDB - Dry Fryingsummary_finalcut_v001.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="deepFrySVid" style="display: none;" preload="metadata">
@@ -178,6 +189,10 @@
             <source src="./assets/videos/S-Frying/S-StirFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <video id="SSummaryVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/S-Frying/S - stir frying summary-finalcut_v001.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <video id="deepFryBFVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/BF-Frying/BF-DeepFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -186,9 +201,26 @@
             <source src="./assets/videos/BF-Frying/BF-StirFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <video id="BFSummaryVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/BF-Frying/BF - Deepfrying summary_finalcut_v002.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
         <div class="criteria-wrapper" style="display: none;" id="criteria-box-container">
-            <img id="criteria-box" src="data:,">
+            <img id="tofu-correct-criteria-box" src="./assets/images/ET-Selection/Correct_Criteria.png"  style="display: none;" >
+            <img id="tofu-incorrect-criteria-box" src="./assets/images/ET-Selection/Incorrect_Criteria.png"  style="display: none;" >
+            <img id="duck-correct-criteria-box" src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Correct_Criteria.png"  style="display: none;" >
+            <img id="duck-incorrect-criteria-box" src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Incorrect_Criteria.png"  style="display: none;" >
+            <img id="spinach-correct-criteria-box" src="./assets/images/S-Selection/Spinach_Correct_Criteria.png"  style="display: none;" >
+            <img id="spinach-incorrect-criteria-box" src="./assets/images/S-Selection/Spinach_Incorrect_Criteria.png" style="display: none;" >
+            <img id="fish-correct-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Correct_Criteria.png"  style="display: none;" >
+            <img id="fish-incorrect-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Incorrect_Criteria.png"  style="display: none;" >
+
+            <img id="tofu-summary-criteria-box" src="./assets/images/ET-Selection/Egg_Tofu_Summary.png"  style="display: none;" >
+            <img id="duck-summary-criteria-box" src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Summary.png"  style="display: none;" >
+            <img id="spinach-summary-criteria-box" src="./assets/images/S-Selection/Spinach_Summary.png"  style="display: none;" >
+            <img id="fish-summary-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Summary.png"  style="display: none;" >
+
         </div>
 
 

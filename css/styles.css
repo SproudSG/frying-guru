@@ -210,7 +210,7 @@ rect:hover {
 
 
 
-#criteria-image {
+.criteria-image {
     position: fixed;
     padding: 1vw;
     width: 33vw;

@@ -120,7 +120,10 @@ document.addEventListener("mousemove", function (event) {
 //Food choice and fry choice
 let foodChoice = "";
 let fryChoice = false;
-const criteriaImage = document.getElementById("criteria-image");
+const ETcriteriaImage = document.getElementById("ET-criteria-image");
+const BFcriteriaImage = document.getElementById("BF-criteria-image");
+const ScriteriaImage = document.getElementById("S-criteria-image");
+const SDBcriteriaImage = document.getElementById("SDB-criteria-image");
 
 // FOOD BUTTON HANDLERS
 tofu.onclick = function () {
@@ -135,6 +138,7 @@ tofu.onclick = function () {
   stirFryingTofu.style.display = "block"
   shallowFryingTofu.style.display = "block"
   tofuLabelContainer.style.display = "block"
+  ETcriteriaImage.style.display = "block"
 
 
 
@@ -152,6 +156,7 @@ duckBreast.onclick = function () {
   deepFryingSDB.style.display = "block"
   dryFryingSDB.style.display = "block"
   SDBLabelContainer.style.display = "block"
+  SDBcriteriaImage.style.display = "block"
 
 
 
@@ -169,6 +174,7 @@ spinach.onclick = function () {
   deepFryingS.style.display = "block"
   stirFryingS.style.display = "block"
   SLabelContainer.style.display = "block"
+  ScriteriaImage.style.display = "block"
 
 
 
@@ -186,6 +192,7 @@ batteredFish1.onclick = function () {
   deepFryingBF.style.display = "block"
   stirFryingBF.style.display = "block"
   SLabelContainer.style.display = "block"
+  BFcriteriaImage.style.display = "block"
 
 
 
@@ -203,6 +210,7 @@ batteredFish2.onclick = function () {
   deepFryingBF.style.display = "block"
   stirFryingBF.style.display = "block"
   SLabelContainer.style.display = "block"
+  BFcriteriaImage.style.display = "block"
 
 
 
@@ -263,6 +271,11 @@ function hideFryImage() {
 fryBackBtn.onclick = function () {
   frySelectionImage.setAttribute("xlink:href", "");
 
+  SDBcriteriaImage.style.display = "none"
+  ETcriteriaImage.style.display = "none"
+  ScriteriaImage.style.display = "none"
+  BFcriteriaImage.style.display = "none"
+
   dryFryingTofu.style.display = "none"
   stirFryingTofu.style.display = "none"
   shallowFryingTofu.style.display = "none"
@@ -298,6 +311,12 @@ const deepFrySVid = document.getElementById("deepFrySVid")
 const stirFrySVid = document.getElementById("stirFrySVid")
 const deepFryBFVid = document.getElementById("deepFryBFVid")
 const stirFryBFVid = document.getElementById("stirFryBFVid")
+const tofuSummaryVid = document.getElementById("tofuSummaryVid")
+const SDBSummaryVid = document.getElementById("SDBSummaryVid")
+const SSummaryVid = document.getElementById("SSummaryVid")
+const BFSummaryVid = document.getElementById("BFSummaryVid")
+
+var completedBtni = 0;
 
 function handleDeepFryingClick() {
   fryPickerAudio.pause()
@@ -393,59 +412,97 @@ shallowFryTofuVid.addEventListener('ended', function () {
   console.log("ended")
   completed.push("tofu")
   continueBtnContainer.style.display = "block";
-  criteriaBox.src = "./assets/images/ET-Selection/Correct_Criteria.png"
+  document.getElementById("tofu-correct-criteria-box").style.display = "block";
   criteriaBoxContainer.style.display = "block";
-
 });
 
 dryFryTofuVid.addEventListener('ended', function () {
   retryBtnContainer.style.display = "block";
-  criteriaBox.src = "./assets/images/ET-Selection/Incorrect_Criteria.png"
+  document.getElementById("tofu-incorrect-criteria-box").style.display = "block";
   criteriaBoxContainer.style.display = "block";
-
 });
 stirFryTofuVid.addEventListener('ended', function () {
   retryBtnContainer.style.display = "block";
-  criteriaBox.src = "./assets/images/ET-Selection/Incorrect_Criteria.png"
+  document.getElementById("tofu-incorrect-criteria-box").style.display = "block";
   criteriaBoxContainer.style.display = "block";
+});
+
+tofuSummaryVid.addEventListener('ended', function () {
+  continueBtnContainer.style.display = "block";
+  document.getElementById("tofu-summary-criteria-box").style.display = "block";
+  criteriaBoxContainer.style.display = "block";
+  completedBtni = 1;
+});
 
 
+SDBSummaryVid.addEventListener('ended', function () {
+  continueBtnContainer.style.display = "block";
+  document.getElementById("duck-summary-criteria-box").style.display = "block";
+  criteriaBoxContainer.style.display = "block";
+  completedBtni = 1;
+});
+
+SSummaryVid.addEventListener('ended', function () {
+  continueBtnContainer.style.display = "block";
+  document.getElementById("spinach-summary-criteria-box").style.display = "block";
+  criteriaBoxContainer.style.display = "block";
+  completedBtni = 1;
+});
+
+BFSummaryVid.addEventListener('ended', function () {
+  continueBtnContainer.style.display = "block";
+  document.getElementById("fish-summary-criteria-box").style.display = "block";
+  criteriaBoxContainer.style.display = "block";
+  completedBtni = 1;
 });
 
 deepFrySDBVid.addEventListener('ended', function () {
   retryBtnContainer.style.display = "block";
-
-
+  document.getElementById("duck-incorrect-criteria-box").style.display = "block";
+  criteriaBoxContainer.style.display = "block";
 });
 
 
 dryFrySDBVid.addEventListener('ended', function () {
   completed.push("duck")
+  document.getElementById("duck-correct-criteria-box").style.display = "block";
+  criteriaBoxContainer.style.display = "block";
   continueBtnContainer.style.display = "block";
 
 });
 
 deepFrySVid.addEventListener('ended', function () {
+  document.getElementById("spinach-incorrect-criteria-box").style.display = "block";
+  criteriaBoxContainer.style.display = "block";
   retryBtnContainer.style.display = "block";
-
 });
 
 stirFrySVid.addEventListener('ended', function () {
   completed.push("spinach")
+  document.getElementById("spinach-correct-criteria-box").style.display = "block";
+  criteriaBoxContainer.style.display = "block";
   continueBtnContainer.style.display = "block";
 
 });
 
 deepFryBFVid.addEventListener('ended', function () {
   completed.push("fish")
+  document.getElementById("fish-correct-criteria-box").style.display = "block";
+
+  criteriaBoxContainer.style.display = "block";
   continueBtnContainer.style.display = "block";
 
 });
 
 stirFryBFVid.addEventListener('ended', function () {
+  criteriaBoxContainer.style.display = "block";
+  document.getElementById("fish-incorrect-criteria-box").style.display = "block";
+
   retryBtnContainer.style.display = "block";
 
 });
+
+
 
 retryButton.onclick = function () {
 
@@ -453,30 +510,27 @@ retryButton.onclick = function () {
 
     retryBtnContainer.style.display = "none";
     criteriaBoxContainer.style.display = "none";
-
     fryingFoodVidContainer.style.display = "none";
+    document.getElementById("tofu-incorrect-criteria-box").style.display = "none";
+
     fryFood.style.display = "block";
 
     if (fryChoice === "dry") {
       dryFryTofuVid.currentTime = 0;
       dryFryTofuVid.style.display = "none";
-
       foodChoice = "tofu"
-
     } else if (fryChoice === "stir") {
       stirFryTofuVid.currentTime = 0;
       stirFryTofuVid.style.display = "none";
-
       foodChoice = "tofu"
-
     }
-
   } else if (foodChoice === "duck") {
 
     retryBtnContainer.style.display = "none";
-    // criteriaBoxContainer.style.display = "none";
+    criteriaBoxContainer.style.display = "none";
     fryingFoodVidContainer.style.display = "none";
     fryFood.style.display = "block";
+    document.getElementById("duck-incorrect-criteria-box").style.display = "none";
 
     if (fryChoice === "deep") {
       deepFrySDBVid.currentTime = 0;
@@ -489,9 +543,10 @@ retryButton.onclick = function () {
   } else if (foodChoice === "spinach") {
 
     retryBtnContainer.style.display = "none";
-    // criteriaBoxContainer.style.display = "none";
+    criteriaBoxContainer.style.display = "none";
     fryingFoodVidContainer.style.display = "none";
     fryFood.style.display = "block";
+    document.getElementById("spinach-incorrect-criteria-box").style.display = "none";
 
     if (fryChoice === "deep") {
       deepFrySVid.currentTime = 0;
@@ -504,9 +559,10 @@ retryButton.onclick = function () {
   } else if (foodChoice === "fish") {
 
     retryBtnContainer.style.display = "none";
-    // criteriaBoxContainer.style.display = "none";
+    criteriaBoxContainer.style.display = "none";
     fryingFoodVidContainer.style.display = "none";
     fryFood.style.display = "block";
+    document.getElementById("fish-incorrect-criteria-box").style.display = "none";
 
     if (fryChoice === "stir") {
       stirFryBFVid.currentTime = 0;
@@ -520,42 +576,95 @@ retryButton.onclick = function () {
 }
 
 continueButton.onclick = function () {
-  tofuLabelContainer.style.display = "none"
-  SDBLabelContainer.style.display = "none"
-  SLabelContainer.style.display = "none"
-
-
-  criteriaBoxContainer.style.display = "none";
-  fryingFoodVidContainer.style.display = "none";
-  foodPicker.style.display = "block";
   continueBtnContainer.style.display = "none"
   if (foodChoice === "tofu") {
-    shallowFryTofuVid.currentTime = 0;
-    shallowFryTofuVid.style.display = "none";
-    dryFryingTofu.style.display = "none"
-    stirFryingTofu.style.display = "none"
-    shallowFryingTofu.style.display = "none"
+    if (completedBtni == 0) {
+      document.getElementById("tofu-correct-criteria-box").style.display = "none";
+      shallowFryTofuVid.currentTime = 0;
+      shallowFryTofuVid.style.display = "none";
+      tofuSummaryVid.style.display = "block";
+      tofuSummaryVid.play()
+    } else {
+      tofuLabelContainer.style.display = "none"
+      tofuSummaryVid.style.display = "none";
+      fryingFoodVidContainer.style.display = "none";
+      foodPicker.style.display = "block";
+      ETcriteriaImage.style.display = "none"
+      document.getElementById("tofu-summary-criteria-box").style.display = "none";
+
+      dryFryingTofu.style.display = "none"
+      stirFryingTofu.style.display = "none"
+      shallowFryingTofu.style.display = "none"
+      completedBtni = 0;
+    }
 
   } else if (foodChoice === "duck") {
-    dryFrySDBVid.currentTime = 0;
-    dryFrySDBVid.style.display = "none";
-    deepFryingSDB.style.display = "none"
-    dryFryingSDB.style.display = "none"
+    console.log("hi")
+    if (completedBtni == 0) {
+      document.getElementById("duck-correct-criteria-box").style.display = "none";
+      dryFrySDBVid.currentTime = 0;
+      dryFrySDBVid.style.display = "none";
+      SDBSummaryVid.style.display = "block";
+      SDBSummaryVid.play()
+    } else {
+      SDBLabelContainer.style.display = "none"
+      SDBSummaryVid.style.display = "none";
+      fryingFoodVidContainer.style.display = "none";
+      foodPicker.style.display = "block";
+      SDBcriteriaImage.style.display = "none"
+      document.getElementById("duck-summary-criteria-box").style.display = "none";
+
+      deepFryingSDB.style.display = "none"
+      dryFryingSDB.style.display = "none"
+      completedBtni = 0;
+    }
+
+
+
   } else if (foodChoice === "spinach") {
-    stirFrySVid.currentTime = 0;
-    stirFrySVid.style.display = "none";
-    deepFryingS.style.display = "none"
-    stirFryingS.style.display = "none"
+
+    if (completedBtni == 0) {
+      document.getElementById("spinach-correct-criteria-box").style.display = "none";
+      stirFrySVid.currentTime = 0;
+      stirFrySVid.style.display = "none";
+      SSummaryVid.style.display = "block";
+      SSummaryVid.play()
+    } else {
+      SLabelContainer.style.display = "none"
+      SSummaryVid.style.display = "none";
+      fryingFoodVidContainer.style.display = "none";
+      foodPicker.style.display = "block";
+      ScriteriaImage.style.display = "none"
+      document.getElementById("spinach-summary-criteria-box").style.display = "none";
+
+      deepFryingS.style.display = "none"
+      stirFryingS.style.display = "none"
+      completedBtni = 0;
+    }
+
   } else if (foodChoice === "fish") {
-    deepFryBFVid.currentTime = 0;
-    deepFryBFVid.style.display = "none";
-    deepFryingBF.style.display = "none"
-    stirFryingBF.style.display = "none"
+
+    if (completedBtni == 0) {
+      document.getElementById("fish-correct-criteria-box").style.display = "none";
+      deepFryBFVid.currentTime = 0;
+      deepFryBFVid.style.display = "none";
+      BFSummaryVid.style.display = "block";
+      BFSummaryVid.play()
+    } else {
+      SLabelContainer.style.display = "none"
+      BFSummaryVid.style.display = "none";
+      fryingFoodVidContainer.style.display = "none";
+      foodPicker.style.display = "block";
+      BFcriteriaImage.style.display = "none"
+      document.getElementById("fish-summary-criteria-box").style.display = "none";
+
+      deepFryingBF.style.display = "none"
+      stirFryingBF.style.display = "none"
+      completedBtni = 0;
+    }
+
+
   }
-
-
-
-
 
 
 }
