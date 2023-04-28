@@ -72,7 +72,7 @@
                 onmouseenter="showImage('batteredFish')" onmouseleave="hideImage()"></rect>
         </svg>
 
-        <img id="hover-label" src="#">
+        <img id="hover-label" src="data:,">
 
         </div>
     </main>
@@ -86,23 +86,59 @@
         <p id="fry-text">
             Select the most suitable frying method<br> from below based on the criteria
         </p>
-        <img src="./assets/images/ET-Selection/ET_Dry Frying_label.png" class="label-image" id="dryfry-label">
-        <img src="./assets/images/ET-Selection/ET_Shallow Frying_label.png" class="label-image" id="shallowfry-label">
-        <img src="./assets/images/ET-Selection/ET_Stir Fry_label.png" class="label-image" id="stirfry-label">
-
+        <div id="ET-label-container" style="display: none;">
+            <img src="./assets/images/ET-Selection/ET_Dry Frying_label.png" class="label-image" id="tofu-dryfry-label">
+            <img src="./assets/images/ET-Selection/ET_Shallow Frying_label.png" class="label-image"
+                id="tofu-shallowfry-label">
+            <img src="./assets/images/ET-Selection/ET_Stir Fry_label.png" class="label-image" id="tofu-stirfry-label">
+        </div>
+        <div id="SDB-label-container" style="display: none;">
+            <img src="./assets/images/SDB-Selection/SDB_Deep Fry_label.png" class="label-image" id="SDB-deepfry-label">
+            <img src="./assets/images/SDB-Selection/SDB_Dry Fry_label.png" class="label-image" id="SDB-dryfry-label">
+        </div>
+        <div id="S-label-container" style="display: none;">
+            <img src="./assets/images/S-Selection/S_Deepfry_label.png" class="label-image" id="SDB-deepfry-label">
+            <img src="./assets/images/S-Selection/S_Stir Fry_label.png" class="label-image" id="SDB-dryfry-label">
+        </div>
 
         <svg viewBox="0 0 1920 1080">
             <image width="1920" height="1080" xlink:href="" class="selection-menu-image" id="fry-selection"></image>
-            <!-- Dry Frying -->
-            <rect id="dryFrying" onclick="handleDryFryingClick()" x="184" y="586" fill="#fff" opacity="0" width="511" height="199"
-                onmouseenter="showFryImage('dryFrying')" onmouseleave="hideFryImage()"></rect>
-            <!-- Shallow Frying -->
-            <rect id="shallowFrying" onclick="handleShallowFryingClick()" x="716" y="578" fill="#fff" opacity="0" width="505" height="207"
-                onmouseenter="showFryImage('shallowFrying')" onmouseleave="hideFryImage()"></rect>
-            <!-- Stir Frying -->
-            <rect id="stirFrying" onclick="handleStirFryingClick()" x="1236" y="578" fill="#fff" opacity="0" width="513" height="207"
-                onmouseenter="showFryImage('stirFrying')" onmouseleave="hideFryImage()"></rect>
-
+            <!-- Dry Frying TOFU -->
+            <rect id="dryFryingTofu" onclick="handleDryFryingClick()" x="184" y="586" fill="#fff" opacity="0"
+                width="511" height="199" onmouseenter="showFryImage('dryFryingTofu')" onmouseleave="hideFryImage()"
+                style="display:none"></rect>
+            <!-- Shallow Frying TOFU -->
+            <rect id="shallowFryingTofu" onclick="handleShallowFryingClick()" x="716" y="578" fill="#fff" opacity="0"
+                width="505" height="207" onmouseenter="showFryImage('shallowFryingTofu')" onmouseleave="hideFryImage()"
+                style="display:none"></rect>
+            <!-- Stir Frying TOFU-->
+            <rect id="stirFryingTofu" onclick="handleStirFryingClick()" x="1236" y="578" fill="#fff" opacity="0"
+                width="513" height="207" onmouseenter="showFryImage('stirFryingTofu')" onmouseleave="hideFryImage()"
+                style="display:none"></rect>
+            <!-- deep frying SDB-->
+            <rect id="deepFryingSDB" onclick="handleDeepFryingClick()" x="410" y="506" fill="#fff" opacity="0"
+                width="490" height="199" onmouseenter="showFryImage('deepFryingSDB')" onmouseleave="hideFryImage()"
+                style="display:none"></rect>
+            <!-- dry frying SDB -->
+            <rect id="dryFryingSDB" onclick="handleDryFryingClick()" x="1030" y="506" fill="#fff" opacity="0"
+                width="490" height="199" onmouseenter="showFryImage('dryFryingSDB')" onmouseleave="hideFryImage()"
+                style="display: none;"></rect>
+            <!-- deep frying S-->
+            <rect id="deepFryingS" onclick="handleDeepFryingClick()" x="410" y="506" fill="#fff" opacity="0" width="490"
+                height="199" onmouseenter="showFryImage('deepFryingS')" onmouseleave="hideFryImage()"
+                style="display:none"></rect>
+            <!-- stir frying S -->
+            <rect id="stirFryingS" onclick="handleStirFryingClick()" x="1030" y="506" fill="#fff" opacity="0"
+                width="490" height="199" onmouseenter="showFryImage('stirFryingS')" onmouseleave="hideFryImage()"
+                style="display: none;"></rect>
+            <!-- deep frying BF-->
+            <rect id="deepFryingBF" onclick="handleDeepFryingClick()" x="410" y="506" fill="#fff" opacity="0" width="490"
+                height="199" onmouseenter="showFryImage('deepFryingBF')" onmouseleave="hideFryImage()"
+                style="display:none"></rect>
+            <!-- stir frying BF -->
+            <rect id="stirFryingBF" onclick="handleStirFryingClick()" x="1030" y="506" fill="#fff" opacity="0"
+                width="490" height="199" onmouseenter="showFryImage('stirFryingBF')" onmouseleave="hideFryImage()"
+                style="display: none;"></rect>
 
         </svg>
         <div class="back-button-wrapper" id="back-button-container">
@@ -114,20 +150,47 @@
     </div>
 
     <div id="food-video-container" style="display: none;">
-        <video id="shallowFryTofuVid" style="display: none;">
+        <video id="shallowFryTofuVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/ET-Frying/ET_ShallowFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <video id="dryFryTofuVid" style="display: none;">
+        <video id="dryFryTofuVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/ET-Frying/ET_DryFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <video id="stirFryTofuVid" style="display: none;">
+        <video id="stirFryTofuVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/ET-Frying/ET_StirFryFull.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <video id="deepFrySDBVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/SDB-Frying/SDB-DeepFryFull.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video id="dryFrySDBVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/SDB-Frying/SDB-DryFryFull.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video id="deepFrySVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/S-Frying/S-DeepFryFull.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video id="stirFrySVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/S-Frying/S-StirFryFull.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video id="deepFryBFVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/BF-Frying/BF-DeepFryFull.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video id="stirFryBFVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/BF-Frying/BF-StirFryFull.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-     
+        <div class="criteria-wrapper" style="display: none;" id="criteria-box-container">
+            <img id="criteria-box" src="data:,">
+        </div>
+
 
         <div class="fry-button-wrapper" style="display: none;" id="retry-button-container">
             <a id="retry-button">

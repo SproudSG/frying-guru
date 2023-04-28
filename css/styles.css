@@ -228,19 +228,26 @@ rect:hover {
 
 }
 
-#dryfry-label {
+#tofu-dryfry-label {
     left: 15vw;
 }
 
-#shallowfry-label {
-    left: 65vw;
+#tofu-shallowfry-label {
+    left: 40vw;
 }
 
-#stirfry-label {
-    left: 42vw;
+#tofu-stirfry-label {
+    left: 67vw;
 }
 
+#SDB-deepfry-label {
+    left: 26vw;
 
+}
+#SDB-dryfry-label {
+    left: 57vw;
+
+}
 
 .default-back,
 .hover-back {
@@ -276,9 +283,9 @@ rect:hover {
     transform: translate(-50%);
 }
 
-.fry-button-wrapper{
+.fry-button-wrapper {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -295,4 +302,15 @@ rect:hover {
     display: block;
     transform: translate(-50%, 60%);
     cursor: pointer;
+}
+
+.criteria-wrapper {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.criteria-wrapper img {
+    width: 50vw;
 }
