@@ -300,6 +300,7 @@ fryBackBtn.onclick = function () {
   foodPicker.style.display = "block";
   fryPickerAudio.pause()
   fryPickerAudio.currentTime = 0
+  foodPickerAudio.play()
 };
 
 // Vids
@@ -625,6 +626,7 @@ continueButton.onclick = function () {
         stirFryingTofu.style.display = "none"
         shallowFryingTofu.style.display = "none"
         completedBtni = 0;
+        foodPickerAudio.play()
       }
 
     } else if (foodChoice === "duck") {
@@ -645,6 +647,7 @@ continueButton.onclick = function () {
         deepFryingSDB.style.display = "none"
         dryFryingSDB.style.display = "none"
         completedBtni = 0;
+        foodPickerAudio.play()
       }
 
 
@@ -668,6 +671,7 @@ continueButton.onclick = function () {
         deepFryingS.style.display = "none"
         stirFryingS.style.display = "none"
         completedBtni = 0;
+        foodPickerAudio.play()
       }
 
     } else if (foodChoice === "fish") {
@@ -689,12 +693,8 @@ continueButton.onclick = function () {
         deepFryingBF.style.display = "none"
         stirFryingBF.style.display = "none"
         completedBtni = 0;
+        foodPickerAudio.play()
       }
-
-
     }
   }
-
-
-
 }
