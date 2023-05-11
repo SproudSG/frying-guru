@@ -59,12 +59,16 @@ const SLabelContainer = document.getElementById("S-label-container")
 
 //foods fried (completed)
 let completed = []
-
+var bandwidth = navigator.connection.downlink;
+console.log(bandwidth)
 // Start button
 startButton.onclick = function () {
   startUI.style.display = "none";
   fryingIntro.style.display = "block";
   document.getElementById("fryingIntro").play();
+  document.getElementById('introOpener').autoplay = false;
+  document.getElementById("introOpener").pause();
+
 
 };
 

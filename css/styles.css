@@ -314,3 +314,9 @@ rect:hover {
 .criteria-wrapper img {
     width: 50vw;
 }
+
+/* sdb fry */
+#duck-summary-criteria-box {
+    margin:0 auto ;
+    width: 42vw;
+}

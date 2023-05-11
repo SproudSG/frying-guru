@@ -13,8 +13,8 @@
     <!-- start cooking -->
 
     <main class="container text-center" id="startUI">
-        <video id="introOpener" autoplay loop>
-            <source preload="metadata" src="./assets/videos/Intro/intro_opener_coloured.mp4" type="video/mp4">
+        <video id="introOpener" autoplay loop preload="metadata">
+            <source src="./assets/videos/Intro/intro_opener_coloured.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="row">
@@ -34,7 +34,7 @@
     <!-- frying introduction -->
 
     <div id="video-container" style="display: none;">
-        <video id="fryingIntro" preload="metadata">
+        <video id="fryingIntro" preload="auto">
             <source src="./assets/videos/Intro/intro_coloured_sounddesign.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -72,7 +72,7 @@
                 onmouseenter="showImage('batteredFish')" onmouseleave="hideImage()"></rect>
         </svg>
 
-        <img id="hover-label" src="data:,">
+        <img id="hover-label" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=">
 
         </div>
     </main>
