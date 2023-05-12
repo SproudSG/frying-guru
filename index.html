@@ -14,7 +14,7 @@
 
     <main class="container text-center" id="startUI">
         <video id="introOpener" autoplay loop preload="metadata">
-            <source src="./assets/videos/Intro/intro_opener_coloured.mp4" type="video/mp4">
+            <source src="./assets/videos/Intro/intro_opener_coloured_720p.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="row">
@@ -34,8 +34,11 @@
     <!-- frying introduction -->
 
     <div id="video-container" style="display: none;">
-        <video id="fryingIntro" preload="auto">
-            <source src="./assets/videos/Intro/intro_coloured_sounddesign.mp4" type="video/mp4">
+        <!-- 720p -->
+        <video id="fryingIntro" preload="metadata">
+            <source
+                src="./assets/videos/Intro/intro_coloured_sounddesign_subtitle_finalcut_welcometofryingguru_FINAL_720p_v002.mp4"
+                type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="start-button-wrapper" style="display: none;" id="next-button-container">
@@ -50,11 +53,13 @@
     <main id="foodPicker" style="display: none;">
         <audio id="foodPickerAudio" src="./assets/vo/Select ingredient.mp3"></audio>
 
-        <img src="./assets/images/UI/Pick_One_Guide.png" class="food-title-image">
 
         <svg viewBox="0 0 1920 1080">
             <image xlink:href="./assets/images/Ingredient/Selection_NoHover.png" class="selection-menu-image"
                 id="selection-image"></image>
+            <image xlink:href="./assets/images/UI/Pick_One_Guide.png" class="food-title-image">
+            </image>
+
             <!-- tofu -->
             <rect x="83" y="329" fill="#fff" opacity="0" width="583" height="261" id="eggTofu"
                 onmouseenter="showImage('tofu')" onmouseleave="hideImage()"></rect>
@@ -70,9 +75,22 @@
             <!-- fish 2 -->
             <rect x="1229" y="490" fill="#fff" opacity="0" width="616" height="330" id="batteredFish2"
                 onmouseenter="showImage('batteredFish')" onmouseleave="hideImage()"></rect>
+
+
+            <foreignObject x="1350" y="905" width="600" height="160">
+                <div class="final-button-wrapper" style="display: none;" id="summary-button-container">
+                    <a id="summary-button">
+                        <img class="default-back" src="./assets/images/UI/Summary_Button.png">
+                        <img class="hover-back" src="./assets/images/UI/Summary_Button_Hover.png">
+                    </a>
+                </div>
+            </foreignObject>
         </svg>
 
-        <img id="hover-label" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=">
+        <img id="hover-label"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=">
+        <img id="hover-label-tick"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=">
 
         </div>
     </main>
@@ -81,31 +99,27 @@
     <div id="fryFood" style="display: none;">
         <audio id="fryPickerAudio" src="./assets/vo/Select frying Method.mp3"></audio>
 
-        <img src="./assets/images/ET-Selection/Criteria_Tofu.png" class="criteria-image" id="ET-criteria-image" style="display:none">
-        <img src="./assets/images/S-Selection/Spinach_Criteria_Text_Box.png" class="criteria-image" id="S-criteria-image" style="display:none">
-        <img src="./assets/images/BF-Selection/Battered_Fish_Criteria_Text_Box.png" class="criteria-image" id="BF-criteria-image" style="display:none">
-        <img src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Criteria_Text_Box.png"  class="criteria-image" id="SDB-criteria-image" style="display:none">
-
-        <p id="fry-text">
-            Select the most suitable frying method<br> from below based on the criteria
-        </p>
-        <div id="ET-label-container" style="display: none;">
-            <img src="./assets/images/ET-Selection/ET_Dry Frying_label.png" class="label-image" id="tofu-dryfry-label">
-            <img src="./assets/images/ET-Selection/ET_Shallow Frying_label.png" class="label-image"
-                id="tofu-shallowfry-label">
-            <img src="./assets/images/ET-Selection/ET_Stir Fry_label.png" class="label-image" id="tofu-stirfry-label">
-        </div>
-        <div id="SDB-label-container" style="display: none;">
-            <img src="./assets/images/SDB-Selection/SDB_Deep Fry_label.png" class="label-image" id="SDB-deepfry-label">
-            <img src="./assets/images/SDB-Selection/SDB_Dry Fry_label.png" class="label-image" id="SDB-dryfry-label">
-        </div>
-        <div id="S-label-container" style="display: none;">
-            <img src="./assets/images/S-Selection/S_Deepfry_label.png" class="label-image" id="SDB-deepfry-label">
-            <img src="./assets/images/S-Selection/S_Stir Fry_label.png" class="label-image" id="SDB-dryfry-label">
-        </div>
-
         <svg viewBox="0 0 1920 1080">
-            <image width="1920" height="1080" xlink:href="" class="selection-menu-image" id="fry-selection"></image>
+            <image width="1920" height="1080" xlink:href="" class="fry-selection-menu-image" id="fry-selection"></image>
+            <foreignObject x="1500" y="200" width="800" height="600">
+                <p id="fry-text">
+                    Select the most suitable frying method<br> from below based on the criteria
+                </p>
+            </foreignObject>
+            <!-- Criteria box -->
+            <image xlink:href="./assets/images/ET-Selection/Criteria_Tofu.png" class="criteria-image"
+                id="ET-criteria-image" style="display:none"></image>
+
+            <image xlink:href="./assets/images/S-Selection/Spinach_Criteria_Text_Box.png" class="criteria-image"
+                id="S-criteria-image" style="display:none"></image>
+
+            <image xlink:href="./assets/images/BF-Selection/Battered_Fish_Criteria_Text_Box.png" class="criteria-image"
+                id="BF-criteria-image" style="display:none"></image>
+
+            <image xlink:href="./assets/images/SDB-Selection/Smoked_Duck_Breast_Criteria_Text_Box.png"
+                class="criteria-image" id="SDB-criteria-image" style="display:none"></image>
+
+
             <!-- Dry Frying TOFU -->
             <rect id="dryFryingTofu" onclick="handleDryFryingClick()" x="184" y="586" fill="#fff" opacity="0"
                 width="511" height="199" onmouseenter="showFryImage('dryFryingTofu')" onmouseleave="hideFryImage()"
@@ -135,94 +149,108 @@
                 width="490" height="199" onmouseenter="showFryImage('stirFryingS')" onmouseleave="hideFryImage()"
                 style="display: none;"></rect>
             <!-- deep frying BF-->
-            <rect id="deepFryingBF" onclick="handleDeepFryingClick()" x="410" y="506" fill="#fff" opacity="0" width="490"
-                height="199" onmouseenter="showFryImage('deepFryingBF')" onmouseleave="hideFryImage()"
+            <rect id="deepFryingBF" onclick="handleDeepFryingClick()" x="410" y="506" fill="#fff" opacity="0"
+                width="490" height="199" onmouseenter="showFryImage('deepFryingBF')" onmouseleave="hideFryImage()"
                 style="display:none"></rect>
             <!-- stir frying BF -->
             <rect id="stirFryingBF" onclick="handleStirFryingClick()" x="1030" y="506" fill="#fff" opacity="0"
                 width="490" height="199" onmouseenter="showFryImage('stirFryingBF')" onmouseleave="hideFryImage()"
                 style="display: none;"></rect>
-
+            <foreignObject x="1550" y="935" width="400" height="160">
+                <div class="back-button-wrapper" id="back-button-container">
+                    <a id="back-button">
+                        <img class="default-back" src="./assets/images/UI/Back_Button.png">
+                        <img class="hover-back" src="./assets/images/UI/Back_Button_Hover.png">
+                    </a>
+                </div>
+            </foreignObject>
         </svg>
-        <div class="back-button-wrapper" id="back-button-container">
-            <a id="back-button">
-                <img class="default-back" src="./assets/images/UI/Back_Button.png">
-                <img class="hover-back" src="./assets/images/UI/Back_Button_Hover.png">
-            </a>
-        </div>
+
     </div>
 
     <div id="food-video-container" style="display: none;">
         <video id="shallowFryTofuVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/ET-Frying/ET_ShallowFryFull.mp4" type="video/mp4">
+            <source src="./assets/videos/ET-Frying/ET_ShallowFryFull720.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="dryFryTofuVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/ET-Frying/ET_DryFryFull.mp4" type="video/mp4">
+            <source src="./assets/videos/ET-Frying/ET_DryFryFull720.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="stirFryTofuVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/ET-Frying/ET_StirFryFull.mp4" type="video/mp4">
+            <source src="./assets/videos/ET-Frying/ET_StirFryFull720.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="tofuSummaryVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/ET-Frying/ET - shallow frying summary_finalcut_v001.mp4" type="video/mp4">
+            <source src="./assets/videos/ET-Frying/ET - shallow frying summary_FINAL_720p.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="deepFrySDBVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/SDB-Frying/SDB-DeepFryFull.mp4" type="video/mp4">
+            <source src="./assets/videos/SDB-Frying/SDB-DeepFryFull720.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="dryFrySDBVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/SDB-Frying/SDB-DryFryFull.mp4" type="video/mp4">
+            <source src="./assets/videos/SDB-Frying/SDB-DryFryFull720.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="SDBSummaryVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/SDB-Frying/SDB - Dry Fryingsummary_finalcut_v001.mp4" type="video/mp4">
+            <source src="./assets/videos/SDB-Frying/SDB - Dry Fryingsummary_FINAL_720p.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="deepFrySVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/S-Frying/S-DeepFryFull.mp4" type="video/mp4">
+            <source src="./assets/videos/S-Frying/S-DeepFryFull720.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="stirFrySVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/S-Frying/S-StirFryFull.mp4" type="video/mp4">
+            <source src="./assets/videos/S-Frying/S-StirFryFull720.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="SSummaryVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/S-Frying/S - stir frying summary-finalcut_v002.mp4" type="video/mp4">
+            <source src="./assets/videos/S-Frying/S - stir frying summary-FINAL_720p.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="deepFryBFVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/BF-Frying/BF-DeepFryFull.mp4" type="video/mp4">
+            <source src="./assets/videos/BF-Frying/BF-DeepFryFull720.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="stirFryBFVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/BF-Frying/BF-StirFryFull.mp4" type="video/mp4">
+            <source src="./assets/videos/BF-Frying/BF-StirFryFull720.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="BFSummaryVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/BF-Frying/BF - Deepfrying summary_finalcut_v002.mp4" type="video/mp4">
+            <source src="./assets/videos/BF-Frying/BF - Deepfrying summary_FINAL_720p.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <video id="AllSummaryVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/Summary/summary_coloured_finalcut_v002.mp4" type="video/mp4">
+            <source src="./assets/videos/Summary/summary_coloured_FINAL_720p.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="criteria-wrapper" style="display: none;" id="criteria-box-container">
-            <img id="tofu-correct-criteria-box" src="./assets/images/ET-Selection/Correct_Criteria.png"  style="display: none;" >
-            <img id="tofu-incorrect-criteria-box" src="./assets/images/ET-Selection/Incorrect_Criteria.png"  style="display: none;" >
-            <img id="duck-correct-criteria-box" src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Correct_Criteria.png"  style="display: none;" >
-            <img id="duck-incorrect-criteria-box" src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Incorrect_Criteria.png"  style="display: none;" >
-            <img id="spinach-correct-criteria-box" src="./assets/images/S-Selection/Spinach_Correct_Criteria.png"  style="display: none;" >
-            <img id="spinach-incorrect-criteria-box" src="./assets/images/S-Selection/Spinach_Incorrect_Criteria.png" style="display: none;" >
-            <img id="fish-correct-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Correct_Criteria.png"  style="display: none;" >
-            <img id="fish-incorrect-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Incorrect_Criteria.png"  style="display: none;" >
+            <img id="tofu-correct-criteria-box" src="./assets/images/ET-Selection/Correct_Criteria.png"
+                style="display: none;">
+            <img id="tofu-incorrect-criteria-box" src="./assets/images/ET-Selection/Incorrect_Criteria.png"
+                style="display: none;">
+            <img id="duck-correct-criteria-box"
+                src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Correct_Criteria.png" style="display: none;">
+            <img id="duck-incorrect-criteria-box"
+                src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Incorrect_Criteria.png" style="display: none;">
+            <img id="spinach-correct-criteria-box" src="./assets/images/S-Selection/Spinach_Correct_Criteria.png"
+                style="display: none;">
+            <img id="spinach-incorrect-criteria-box" src="./assets/images/S-Selection/Spinach_Incorrect_Criteria.png"
+                style="display: none;">
+            <img id="fish-correct-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Correct_Criteria.png"
+                style="display: none;">
+            <img id="fish-incorrect-criteria-box"
+                src="./assets/images/BF-Selection/Battered_Fish_Incorrect_Criteria.png" style="display: none;">
 
-            <img id="tofu-summary-criteria-box" src="./assets/images/ET-Selection/Egg_Tofu_Summary.png"  style="display: none;" >
-            <img id="duck-summary-criteria-box" src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Summary.png"  style="display: none;" >
-            <img id="spinach-summary-criteria-box" src="./assets/images/S-Selection/Spinach_Summary.png"  style="display: none;" >
-            <img id="fish-summary-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Summary.png"  style="display: none;" >
+            <img id="tofu-summary-criteria-box" src="./assets/images/ET-Selection/Egg_Tofu_Summary.png"
+                style="display: none;">
+            <img id="duck-summary-criteria-box" src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Summary.png"
+                style="display: none;">
+            <img id="spinach-summary-criteria-box" src="./assets/images/S-Selection/Spinach_Summary.png"
+                style="display: none;">
+            <img id="fish-summary-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Summary.png"
+                style="display: none;">
 
         </div>
 
@@ -241,7 +269,19 @@
             </a>
         </div>
 
-        <div class="back-button-wrapper"  style="display: none;" id="restart-button-container">
+        <div class="final-button-wrapper" style="display: none;" id="final-continue-button-container">
+            <a id="final-continue-button">
+                <img class="default-back" src="./assets/images/UI/Continue_Button.png">
+                <img class="hover-back" src="./assets/images/UI/Continue_Button_Hover.png">
+            </a>
+        </div>
+        <div class="end-cred" style="display: none;" id="cpdd">
+            <img src="./assets/images/CPDD Frying end credits_v002.jpg">
+        </div>
+        <div class="summary-UI" style="display: none;" id="summary-ui">
+            <img src="./assets/images/ui/Frying_Guru_Summary.png">
+        </div>
+        <div class="final-button-wrapper" style="display: none;" id="restart-button-container">
             <a id="restart-button">
                 <img class="default-back" src="./assets/images/UI/Restart_Button.png">
                 <img class="hover-back" src="./assets/images/UI/Restart_Button_Hover.png">

@@ -33,7 +33,9 @@ body {
     top: 50%;
     left: 50%;
     max-width: 100%;
-    min-height: 120%;
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
     transform: translate(-50%, -50%);
     z-index: -1;
 }
@@ -41,9 +43,9 @@ body {
 .logo {
     position: absolute;
     width: 50vw;
-    top: 50%;
+    top: 0%;
     left: 50%;
-    transform: translate(-50%, -80%);
+    transform: translate(-50%);
 }
 
 .start-button-wrapper {
@@ -58,9 +60,9 @@ body {
 .hover-img {
     position: absolute;
     width: 20vw;
-    top: 50%;
+    top: 80vh;
     left: 50%;
-    transform: translate(-50%, 70%);
+    transform: translate(-50%);
 }
 
 .start-button-wrapper a img.hover-img {
@@ -73,7 +75,9 @@ body {
 
 .start-button-wrapper a:hover img.hover-img {
     display: block;
-    transform: translate(-50%, 60%);
+    top: 80vh;
+
+    transform: translate(-50%);
     cursor: pointer;
 }
 
@@ -102,17 +106,17 @@ body {
     width: 100%;
 }
 
-#fryingIntro {
+#fryingIntro,
+#AllSummaryVid {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 100%;
-    min-height: 120%;
-
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
 }
-
-
 
 #fry-finish-button {
     position: fixed;
@@ -125,31 +129,22 @@ body {
 
 /* ------------------ Food picker -------------------------- */
 #foodPicker {
-    min-width: 100%;
-    min-height: 100%;
-
+    max-width: 100%;
+    max-height: 100vh;
 }
 
 .food-title-image {
-    position: fixed;
-    width: 40vw;
-
-}
-
-.selection-menu-image {
-    min-width: 100vw;
-}
-
-.hover-container {
-    width: 1920px;
-    height: 1080px;
-}
-
-.hover-selection {
-    position: fixed;
-    top: 100px;
-    left: 0;
+    width: 750px;
     z-index: 1;
+
+}
+
+
+svg {
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+
 }
 
 rect:hover {
@@ -183,7 +178,23 @@ rect:hover {
     height: 3vw;
 }
 
+#hover-label-tick {
+    z-index: 1;
+    position: absolute;
+    height: 3vw;
+}
 
+.summary-UI img{
+    max-height: 80vh;
+}
+.summary-UI{
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ max-width: 100%;
+ max-height: 100%;
+ transform: translate(-50%, -50%);
+}
 /* ------------------ Fry Food -------------------------- */
 
 
@@ -197,64 +208,35 @@ rect:hover {
 #fry-text {
     position: fixed;
     background-color: #0000008a;
-    padding: 2vw;
-    padding-right: 2vw;
-    border-radius: 1vw;
+    padding: 20px;
+    border-radius: 10px;
     color: white;
-    font-size: 1.5vw;
-    top: 10vw;
-    right: -4vw;
-    width: 35vw;
+    width: 500px;
+    font-size: 20px;
 
 }
 
 
 
 .criteria-image {
-    position: fixed;
-    padding: 1vw;
-    width: 33vw;
+    width: 610px;
+}
+
+#BF-criteria-image,
+#SDB-criteria-image {
+    width:800px;
 }
 
 #foodImage {
     margin-top: 50px;
 }
 
-.label-image {
-    position: fixed;
-    padding: 1vw;
-    height: 6vw;
-    top: 20vw;
 
-}
-
-#tofu-dryfry-label {
-    left: 15vw;
-}
-
-#tofu-shallowfry-label {
-    left: 40vw;
-}
-
-#tofu-stirfry-label {
-    left: 67vw;
-}
-
-#SDB-deepfry-label {
-    left: 26vw;
-
-}
-#SDB-dryfry-label {
-    left: 57vw;
-
-}
 
 .default-back,
 .hover-back {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 20vw;
+    position: absolute;
+    width: 400px;
 }
 
 .back-button-wrapper a img.hover-back {
@@ -276,18 +258,20 @@ rect:hover {
 
 
 #food-video-container>video {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    width: 100%;
-    transform: translate(-50%);
+    max-width: 100%;
+    max-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
 .fry-button-wrapper {
     position: absolute;
-    top: 60%;
+    top: -10%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
 }
 
 .fry-button-wrapper a img.hover-img {
@@ -300,7 +284,7 @@ rect:hover {
 
 .fry-button-wrapper a:hover img.hover-img {
     display: block;
-    transform: translate(-50%, 60%);
+    transform: translate(-50%, 0%);
     cursor: pointer;
 }
 
@@ -317,6 +301,38 @@ rect:hover {
 
 /* sdb fry */
 #duck-summary-criteria-box {
-    margin:0 auto ;
+    margin: 0 auto;
     width: 42vw;
+}
+
+/* end */
+
+.end-cred img {
+    width: 100vw;
+    ;
+    height: 100vh;
+    ;
+
+}
+
+
+.final-button-wrapper {
+    position: absolute;
+    bottom: 150px;
+    right: 450px;
+    z-index: 10;
+}
+
+.final-button-wrapper a img.hover-back {
+    display: none;
+}
+
+.final-button-wrapper a:hover img.default-back {
+    display: none;
+}
+
+.final-button-wrapper a:hover img.hover-back {
+    display: block;
+    transform: translate(0%, -10%);
+    cursor: pointer;
 }
