@@ -33,7 +33,7 @@ const criteriaBoxContainer = document.getElementById("criteria-box-container");
 const restartBtnContainer = document.getElementById("restart-button-container");
 const summaryBtnContainer = document.getElementById("summary-button-container");
 const finalContinueButtonContainer = document.getElementById("final-continue-button-container");
-
+const cpddPlayBtn = document.getElementById("cpddPlayBtn");
 const criteriaBox = document.getElementById("criteria-box");
 
 
@@ -59,12 +59,42 @@ const summaryButton = document.getElementById("summary-button");
 const finalContinueButton = document.getElementById("final-continue-button");
 
 //Bandwidth
-var bandwidth = navigator.connection.downlink;
-console.log(bandwidth)
-
+var bandwidth = 1
 //foods fried (completed)
 let completed = []
 
+
+function isIOS() {
+  const userAgent = navigator.userAgent;
+  return /iPhone|iPad|iPod/i.test(userAgent);
+}
+
+if (isIOS()) {
+  // The user is on an iOS device
+  cpddPlayBtn.style.display = "block"
+  document.getElementById("cpddIntro").style.display = "none"
+
+} else {
+  // The user is not on an iOS device
+  document.getElementById("cpddIntro").play();
+  // bandwidth = navigator.connection.downlink;
+}
+
+
+cpddPlayBtn.addEventListener('click', () => {
+  cpddPlayBtn.style.display = "none";
+  document.getElementById("cpddIntro").style.display = "block";
+  document.getElementById("cpddIntro").play(); 
+  document.getElementById("introOpener").play();
+
+});
+
+
+document.getElementById("cpddIntro").addEventListener("ended", () => {
+  document.getElementById("cpddIntro").pause();
+  document.getElementById("cpddIntro").style.display = "none";
+  startUI.style.display = "block";
+});
 
 // Start button
 startButton.onclick = function () {
@@ -86,7 +116,7 @@ fryNextButton.onclick = function () {
   fryingIntro.style.display = "none";
   nextBtnContainer.style.display = "none";
   foodPicker.style.display = "block";
-  if(hasFourUniqueElements(completed)){
+  if (hasFourUniqueElements(completed)) {
     summaryBtnContainer.style.display = 'block'
   }
   foodPickerAudio.play()
@@ -138,7 +168,7 @@ document.addEventListener("mousemove", function (event) {
   hoverLabel.style.left = x + "px";
   hoverLabel.style.top = y + "px";
   tickHoverLabel.style.left = x - 30 + "px";
-  tickHoverLabel.style.top = y  + "px";
+  tickHoverLabel.style.top = y + "px";
 });
 
 
@@ -582,14 +612,14 @@ finalContinueButton.onclick = function () {
   setTimeout(() => {
     restartBtnContainer.style.display = "block";
 
-  }, 4000);
+  }, 2000);
 
 }
 
 restartButton.onclick = function () {
   document.getElementById("cpdd").style.display = "none";
   startUI.style.display = "block";
-  restartButton.style.display = "none";
+  restartBtnContainer.style.display = "none";
   document.getElementById("introOpener").play();
 
 }
@@ -680,8 +710,6 @@ function hasFourUniqueElements(arr) {
 
 continueButton.onclick = function () {
   continueBtnContainer.style.display = "none"
-  console.log(completed)
-  console.log(hasFourUniqueElements(completed))
   if (completedBtni == 1 && hasFourUniqueElements(completed)) {
     tofuSummaryVid.style.display = "none"
     SDBSummaryVid.style.display = "none";
@@ -702,12 +730,13 @@ continueButton.onclick = function () {
         shallowFryTofuVid.currentTime = 0;
         shallowFryTofuVid.style.display = "none";
         tofuSummaryVid.style.display = "block";
-        if (bandwidth < 5) {
-          tofuSummaryVid.play()
-        } else {
-          tofuSummaryVid.src = "./assets/videos/ET-Frying/ET - shallow frying summary_finalcut_v001.mp4"
-          tofuSummaryVid.play()
-        }
+        tofuSummaryVid.play()
+        // if (bandwidth < 5) {
+        //   tofuSummaryVid.play()
+        // } else {
+        //   tofuSummaryVid.src = "./assets/videos/ET-Frying/ET - shallow frying summary_finalcut_v001.mp4"
+        //   tofuSummaryVid.play()
+        // }
       } else {
         tofuSummaryVid.style.display = "none";
         fryingFoodVidContainer.style.display = "none";
@@ -728,12 +757,13 @@ continueButton.onclick = function () {
         dryFrySDBVid.currentTime = 0;
         dryFrySDBVid.style.display = "none";
         SDBSummaryVid.style.display = "block";
-        if (bandwidth < 5) {
-          SDBSummaryVid.play()
-        } else {
-          SDBSummaryVid.src = "./assets/videos/SDB-Frying/SDB - Dry Fryingsummary_finalcut_v001.mp4"
-          SDBSummaryVid.play()
-        }
+        SDBSummaryVid.play()
+        // if (bandwidth < 5) {
+        //   SDBSummaryVid.play()
+        // } else {
+        //   SDBSummaryVid.src = "./assets/videos/SDB-Frying/SDB - Dry Fryingsummary_finalcut_v001.mp4"
+        //   SDBSummaryVid.play()
+        // }
       } else {
         SDBSummaryVid.style.display = "none";
         fryingFoodVidContainer.style.display = "none";
@@ -756,12 +786,13 @@ continueButton.onclick = function () {
         stirFrySVid.currentTime = 0;
         stirFrySVid.style.display = "none";
         SSummaryVid.style.display = "block";
-        if (bandwidth < 5) {
-          SSummaryVid.play()
-        } else {
-          SSummaryVid.src = './assets/videos/S-Frying/S - stir frying summary-finalcut_v002.mp4'
-          SSummaryVid.play()
-        }
+        SSummaryVid.play()
+        // if (bandwidth < 5) {
+        //   SSummaryVid.play()
+        // } else {
+        //   SSummaryVid.src = './assets/videos/S-Frying/S - stir frying summary-finalcut_v002.mp4'
+        //   SSummaryVid.play()
+        // }
       } else {
         SSummaryVid.style.display = "none";
         fryingFoodVidContainer.style.display = "none";
@@ -782,12 +813,13 @@ continueButton.onclick = function () {
         deepFryBFVid.currentTime = 0;
         deepFryBFVid.style.display = "none";
         BFSummaryVid.style.display = "block";
-        if (bandwidth < 5) {
-          BFSummaryVid.play()
-        } else {
-          BFSummaryVid.src = './assets/videos/BF-Frying/BF - Deepfrying summary_finalcut_v002.mp4'
-          BFSummaryVid.play()
-        }
+        BFSummaryVid.play()
+        // if (bandwidth < 5) {
+        //   BFSummaryVid.play()
+        // } else {
+        //   BFSummaryVid.src = './assets/videos/BF-Frying/BF - Deepfrying summary_finalcut_v002.mp4'
+        //   BFSummaryVid.play()
+        // }
       } else {
         BFSummaryVid.style.display = "none";
         fryingFoodVidContainer.style.display = "none";
@@ -803,3 +835,4 @@ continueButton.onclick = function () {
     }
   }
 }
+

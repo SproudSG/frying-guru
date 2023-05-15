@@ -11,8 +11,14 @@
 
 <body>
     <!-- start cooking -->
+    <img src="./assets/images/UI/playbtn.png" style="display:none;" id="cpddPlayBtn">
 
-    <main class="container text-center" id="startUI">
+    <video id="cpddIntro" muted>
+        <source src="./assets/videos/Intro/CPDD logo white 720p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <main class="container text-center" style="display: none;" id="startUI">
         <video id="introOpener" autoplay loop preload="metadata">
             <source src="./assets/videos/Intro/intro_opener_coloured_720p.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -279,7 +285,7 @@
             <img src="./assets/images/CPDD Frying end credits_v002.jpg">
         </div>
         <div class="summary-UI" style="display: none;" id="summary-ui">
-            <img src="./assets/images/ui/Frying_Guru_Summary.png">
+            <img src="./assets/images/UI/Frying_Guru_Summary.png">
         </div>
         <div class="final-button-wrapper" style="display: none;" id="restart-button-container">
             <a id="restart-button">
