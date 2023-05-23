@@ -27,6 +27,8 @@ const fryFood = document.getElementById("fryFood");
 const fryPickerAudio = document.getElementById("fryPickerAudio");
 const frySelectionImage = document.getElementById("fry-selection")
 const fryBackBtn = document.getElementById("back-button");
+const fryBackBtnIOS = document.getElementById("back-button-ios");
+
 const retryBtnContainer = document.getElementById("retry-button-container");
 const continueBtnContainer = document.getElementById("continue-button-container");
 const criteriaBoxContainer = document.getElementById("criteria-box-container");
@@ -56,6 +58,8 @@ const retryButton = document.getElementById("retry-button");
 const continueButton = document.getElementById("continue-button");
 const restartButton = document.getElementById("restart-button");
 const summaryButton = document.getElementById("summary-button");
+const summaryButtonIOS = document.getElementById("summary-button-ios");
+
 const finalContinueButton = document.getElementById("final-continue-button");
 
 //Bandwidth
@@ -63,34 +67,75 @@ var bandwidth = 1
 //foods fried (completed)
 let completed = []
 
-
-function isIOS() {
+function isMobileIOS() {
   const userAgent = navigator.userAgent;
-  return /iPhone|iPad|iPod/i.test(userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+  const isMobile = /Mobi|Android/i.test(userAgent);
+
+  return isIOS && isMobile;
 }
 
-if (isIOS()) {
-  // The user is on an iOS device
+if (isMobileIOS()) {
+  console.log("true")
   cpddPlayBtn.style.display = "block"
   document.getElementById("cpddIntro").style.display = "none"
 
 } else {
-  // The user is not on an iOS device
   document.getElementById("cpddIntro").play();
-  // bandwidth = navigator.connection.downlink;
 }
+
+window.addEventListener("orientationchange", function () {
+  if (isMobileIOS()) {
+    var popup = document.getElementById("popup");
+
+    if (window.orientation === 0 || window.orientation === 180) {
+      // Portrait mode
+      popup.style.display = "block";
+    } else {
+      // Landscape mode
+      popup.style.display = "none";
+    }
+  }
+});
+
+window.addEventListener("resize", function () {
+
+  var popup = document.getElementById("popup");
+  if (window.innerWidth < window.innerHeight) {
+    // Portrait mode
+    popup.style.display = "block";
+
+  } else {
+    // Landscape mode
+    popup.style.display = "none";
+
+  }
+
+});
 
 
 cpddPlayBtn.addEventListener('click', () => {
   cpddPlayBtn.style.display = "none";
   document.getElementById("cpddIntro").style.display = "block";
-  document.getElementById("cpddIntro").play(); 
-  document.getElementById("introOpener").play();
+  document.getElementById("cpddIntro").play();
 
+  setTimeout(() => {
+    document.getElementById("introOpener").play();
+
+  }, document.getElementById("cpddIntro").duration * 1000);
 });
 
 
 document.getElementById("cpddIntro").addEventListener("ended", () => {
+  var popup = document.getElementById("popup");
+
+  if (window.innerWidth < window.innerHeight) {
+    // Portrait mode
+    popup.style.display = "block";
+  } else {
+    // Landscape mode
+    popup.style.display = "none";
+  }
   document.getElementById("cpddIntro").pause();
   document.getElementById("cpddIntro").style.display = "none";
   startUI.style.display = "block";
@@ -117,7 +162,11 @@ fryNextButton.onclick = function () {
   nextBtnContainer.style.display = "none";
   foodPicker.style.display = "block";
   if (hasFourUniqueElements(completed)) {
-    summaryBtnContainer.style.display = 'block'
+    if (isMobileIOS()) {
+      document.getElementById("summary-button-container-ios").style.display = 'block'
+    } else {
+      summaryBtnContainer.style.display = 'block'
+    }
   }
   foodPickerAudio.play()
 };
@@ -188,6 +237,13 @@ tofu.onclick = function () {
   foodPickerAudio.currentTime = 0
   fryFood.style.display = "block";
 
+  if (isMobileIOS()) {
+    document.getElementById("fry-text").style.display = "none";
+    document.getElementById("fry-text-ios").style.display = "block";
+    document.getElementById("back-button-container").style.display = "none";
+    document.getElementById("back-button-container-ios").style.display = "block";
+  }
+
   fryPickerAudio.play()
   foodPicker.style.display = "none";
   frySelectionImage.setAttribute("xlink:href", "./assets/images/ET-Selection/ET_nohover.png");
@@ -205,7 +261,12 @@ duckBreast.onclick = function () {
   foodPickerAudio.pause()
   foodPickerAudio.currentTime = 0
   fryFood.style.display = "block";
-
+  if (isMobileIOS()) {
+    document.getElementById("fry-text").style.display = "none";
+    document.getElementById("fry-text-ios").style.display = "block";
+    document.getElementById("back-button-container").style.display = "none";
+    document.getElementById("back-button-container-ios").style.display = "block";
+  }
   fryPickerAudio.play()
   foodPicker.style.display = "none";
   frySelectionImage.setAttribute("xlink:href", "./assets/images/SDB-Selection/SDB_nohover.png");
@@ -222,7 +283,12 @@ spinach.onclick = function () {
   foodPickerAudio.pause()
   foodPickerAudio.currentTime = 0
   fryFood.style.display = "block";
-
+  if (isMobileIOS()) {
+    document.getElementById("fry-text").style.display = "none";
+    document.getElementById("fry-text-ios").style.display = "block";
+    document.getElementById("back-button-container").style.display = "none";
+    document.getElementById("back-button-container-ios").style.display = "block";
+  }
   fryPickerAudio.play()
   foodPicker.style.display = "none";
   frySelectionImage.setAttribute("xlink:href", "./assets/images/S-Selection/S_nohover.png");
@@ -239,7 +305,12 @@ batteredFish1.onclick = function () {
   foodPickerAudio.pause()
   foodPickerAudio.currentTime = 0
   fryFood.style.display = "block";
-
+  if (isMobileIOS()) {
+    document.getElementById("fry-text").style.display = "none";
+    document.getElementById("fry-text-ios").style.display = "block";
+    document.getElementById("back-button-container").style.display = "none";
+    document.getElementById("back-button-container-ios").style.display = "block";
+  }
   fryPickerAudio.play()
   foodPicker.style.display = "none";
   frySelectionImage.setAttribute("xlink:href", "./assets/images/BF-Selection/BF_nohover.png");
@@ -321,6 +392,34 @@ function hideFryImage() {
 
 // Next (frying intro) button
 fryBackBtn.onclick = function () {
+  frySelectionImage.setAttribute("xlink:href", "");
+
+  SDBcriteriaImage.style.display = "none"
+  ETcriteriaImage.style.display = "none"
+  ScriteriaImage.style.display = "none"
+  BFcriteriaImage.style.display = "none"
+
+  dryFryingTofu.style.display = "none"
+  stirFryingTofu.style.display = "none"
+  shallowFryingTofu.style.display = "none"
+
+  deepFryingSDB.style.display = "none"
+  dryFryingSDB.style.display = "none"
+
+  deepFryingS.style.display = "none"
+  stirFryingS.style.display = "none"
+
+  deepFryingBF.style.display = "none"
+  stirFryingBF.style.display = "none"
+
+  fryFood.style.display = "none";
+  foodPicker.style.display = "block";
+  fryPickerAudio.pause()
+  fryPickerAudio.currentTime = 0
+  foodPickerAudio.play()
+};
+
+fryBackBtnIOS.onclick = function () {
   frySelectionImage.setAttribute("xlink:href", "");
 
   SDBcriteriaImage.style.display = "none"
@@ -598,34 +697,42 @@ stirFryBFVid.addEventListener('ended', function () {
 
 document.getElementById("AllSummaryVid").addEventListener('ended', function () {
   finalContinueButtonContainer.style.display = "block";
+  restartBtnContainer.style.display = "block";
   document.getElementById("summary-ui").style.display = "block";
 
 });
 
 finalContinueButton.onclick = function () {
   finalContinueButtonContainer.style.display = "none";
+  restartBtnContainer.style.display = "none";
+
   document.getElementById("AllSummaryVid").style.display = "none";
   document.getElementById("summary-ui").style.display = "none";
-
   document.getElementById("cpdd").style.display = "block";
-
-  setTimeout(() => {
-    restartBtnContainer.style.display = "block";
-
-  }, 2000);
+  document.getElementById("cpdd").play();
 
 }
 
 restartButton.onclick = function () {
-  document.getElementById("cpdd").style.display = "none";
   startUI.style.display = "block";
+  finalContinueButtonContainer.style.display = "none";
   restartBtnContainer.style.display = "none";
+  document.getElementById("AllSummaryVid").style.display = "none";
+  document.getElementById("summary-ui").style.display = "none";
+
   document.getElementById("introOpener").play();
 
 }
 
 summaryButton.onclick = function () {
   foodPicker.style.display = "none";
+  document.getElementById("AllSummaryVid").style.display = "block";
+  document.getElementById("AllSummaryVid").play();
+}
+
+summaryButtonIOS.onclick = function () {
+  foodPicker.style.display = "none";
+  document.getElementById("food-video-container").style.display = "block";
   document.getElementById("AllSummaryVid").style.display = "block";
   document.getElementById("AllSummaryVid").play();
 }
@@ -731,12 +838,6 @@ continueButton.onclick = function () {
         shallowFryTofuVid.style.display = "none";
         tofuSummaryVid.style.display = "block";
         tofuSummaryVid.play()
-        // if (bandwidth < 5) {
-        //   tofuSummaryVid.play()
-        // } else {
-        //   tofuSummaryVid.src = "./assets/videos/ET-Frying/ET - shallow frying summary_finalcut_v001.mp4"
-        //   tofuSummaryVid.play()
-        // }
       } else {
         tofuSummaryVid.style.display = "none";
         fryingFoodVidContainer.style.display = "none";
@@ -758,12 +859,6 @@ continueButton.onclick = function () {
         dryFrySDBVid.style.display = "none";
         SDBSummaryVid.style.display = "block";
         SDBSummaryVid.play()
-        // if (bandwidth < 5) {
-        //   SDBSummaryVid.play()
-        // } else {
-        //   SDBSummaryVid.src = "./assets/videos/SDB-Frying/SDB - Dry Fryingsummary_finalcut_v001.mp4"
-        //   SDBSummaryVid.play()
-        // }
       } else {
         SDBSummaryVid.style.display = "none";
         fryingFoodVidContainer.style.display = "none";
@@ -787,12 +882,6 @@ continueButton.onclick = function () {
         stirFrySVid.style.display = "none";
         SSummaryVid.style.display = "block";
         SSummaryVid.play()
-        // if (bandwidth < 5) {
-        //   SSummaryVid.play()
-        // } else {
-        //   SSummaryVid.src = './assets/videos/S-Frying/S - stir frying summary-finalcut_v002.mp4'
-        //   SSummaryVid.play()
-        // }
       } else {
         SSummaryVid.style.display = "none";
         fryingFoodVidContainer.style.display = "none";
@@ -814,12 +903,6 @@ continueButton.onclick = function () {
         deepFryBFVid.style.display = "none";
         BFSummaryVid.style.display = "block";
         BFSummaryVid.play()
-        // if (bandwidth < 5) {
-        //   BFSummaryVid.play()
-        // } else {
-        //   BFSummaryVid.src = './assets/videos/BF-Frying/BF - Deepfrying summary_finalcut_v002.mp4'
-        //   BFSummaryVid.play()
-        // }
       } else {
         BFSummaryVid.style.display = "none";
         fryingFoodVidContainer.style.display = "none";

@@ -10,18 +10,27 @@
 </head>
 
 <body>
+
+    <!-- pop up div -->
+    <div class="popup" id="popup">
+        <img src="./assets/images/Ingredient/Selection_NoHover.png">
+        <span>Please switch to landscape mode for the best viewing experience.</span>
+    </div>
+
+
+
     <!-- start cooking -->
     <img src="./assets/images/UI/playbtn.png" style="display:none;" id="cpddPlayBtn">
 
-    <video id="cpddIntro" muted>
+    <video playsinline id="cpddIntro" muted>
         <source src="./assets/videos/Intro/CPDD logo white 720p.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        Your browser does not support the video playsinline tag.
     </video>
 
     <main class="container text-center" style="display: none;" id="startUI">
-        <video id="introOpener" autoplay loop preload="metadata">
+        <video playsinline id="introOpener" autoplay loop preload="metadata">
             <source src="./assets/videos/Intro/intro_opener_coloured_720p.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
         <div class="row">
             <img src="./assets/images/UI/Logo.png" class="logo">
@@ -41,11 +50,11 @@
 
     <div id="video-container" style="display: none;">
         <!-- 720p -->
-        <video id="fryingIntro" preload="metadata">
+        <video playsinline id="fryingIntro" preload="metadata">
             <source
                 src="./assets/videos/Intro/intro_coloured_sounddesign_subtitle_finalcut_welcometofryingguru_FINAL_720p_v002.mp4"
                 type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
         <div class="start-button-wrapper" style="display: none;" id="next-button-container">
             <a id="fry-next-button">
@@ -93,6 +102,13 @@
             </foreignObject>
         </svg>
 
+        <div class="final-button-wrapper" style="display: none;" id="summary-button-container-ios">
+            <a id="summary-button-ios">
+                <img class="default-back" src="./assets/images/UI/Summary_Button.png">
+                <img class="hover-back" src="./assets/images/UI/Summary_Button_Hover.png">
+            </a>
+        </div>
+
         <img id="hover-label"
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=">
         <img id="hover-label-tick"
@@ -104,7 +120,9 @@
     <!-- Pick Frying Method -->
     <div id="fryFood" style="display: none;">
         <audio id="fryPickerAudio" src="./assets/vo/Select frying Method.mp3"></audio>
-
+        <p id="fry-text-ios" style="display: none;">
+            Select the most suitable frying method<br> from below based on the criteria
+        </p>
         <svg viewBox="0 0 1920 1080">
             <image width="1920" height="1080" xlink:href="" class="fry-selection-menu-image" id="fry-selection"></image>
             <foreignObject x="1500" y="200" width="800" height="600">
@@ -172,64 +190,72 @@
             </foreignObject>
         </svg>
 
+
+        <div class="back-button-wrapper-ios" style="display: none;" id="back-button-container-ios">
+            <a id="back-button-ios">
+                <img class="default-back" src="./assets/images/UI/Back_Button.png">
+                <img class="hover-back" src="./assets/images/UI/Back_Button_Hover.png">
+            </a>
+        </div>
+
     </div>
 
     <div id="food-video-container" style="display: none;">
-        <video id="shallowFryTofuVid" style="display: none;" preload="metadata">
+        <video playsinline id="shallowFryTofuVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/ET-Frying/ET_ShallowFryFull720.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="dryFryTofuVid" style="display: none;" preload="metadata">
+        <video playsinline id="dryFryTofuVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/ET-Frying/ET_DryFryFull720.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="stirFryTofuVid" style="display: none;" preload="metadata">
+        <video playsinline id="stirFryTofuVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/ET-Frying/ET_StirFryFull720.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="tofuSummaryVid" style="display: none;" preload="metadata">
+        <video playsinline id="tofuSummaryVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/ET-Frying/ET - shallow frying summary_FINAL_720p.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="deepFrySDBVid" style="display: none;" preload="metadata">
+        <video playsinline id="deepFrySDBVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/SDB-Frying/SDB-DeepFryFull720.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="dryFrySDBVid" style="display: none;" preload="metadata">
+        <video playsinline id="dryFrySDBVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/SDB-Frying/SDB-DryFryFull720.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="SDBSummaryVid" style="display: none;" preload="metadata">
+        <video playsinline id="SDBSummaryVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/SDB-Frying/SDB - Dry Fryingsummary_FINAL_720p.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="deepFrySVid" style="display: none;" preload="metadata">
+        <video playsinline id="deepFrySVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/S-Frying/S-DeepFryFull720.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="stirFrySVid" style="display: none;" preload="metadata">
+        <video playsinline id="stirFrySVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/S-Frying/S-StirFryFull720.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="SSummaryVid" style="display: none;" preload="metadata">
+        <video playsinline id="SSummaryVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/S-Frying/S - stir frying summary-FINAL_720p.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="deepFryBFVid" style="display: none;" preload="metadata">
+        <video playsinline id="deepFryBFVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/BF-Frying/BF-DeepFryFull720.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="stirFryBFVid" style="display: none;" preload="metadata">
+        <video playsinline id="stirFryBFVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/BF-Frying/BF-StirFryFull720.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="BFSummaryVid" style="display: none;" preload="metadata">
+        <video playsinline id="BFSummaryVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/BF-Frying/BF - Deepfrying summary_FINAL_720p.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
-        <video id="AllSummaryVid" style="display: none;" preload="metadata">
+        <video playsinline id="AllSummaryVid" style="display: none;" preload="metadata">
             <source src="./assets/videos/Summary/summary_coloured_FINAL_720p.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            Your browser does not support the video playsinline tag.
         </video>
         <div class="criteria-wrapper" style="display: none;" id="criteria-box-container">
             <img id="tofu-correct-criteria-box" src="./assets/images/ET-Selection/Correct_Criteria.png"
@@ -248,7 +274,6 @@
                 style="display: none;">
             <img id="fish-incorrect-criteria-box"
                 src="./assets/images/BF-Selection/Battered_Fish_Incorrect_Criteria.png" style="display: none;">
-
             <img id="tofu-summary-criteria-box" src="./assets/images/ET-Selection/Egg_Tofu_Summary.png"
                 style="display: none;">
             <img id="duck-summary-criteria-box" src="./assets/images/SDB-Selection/Smoked_Duck_Breast_Summary.png"
@@ -257,9 +282,7 @@
                 style="display: none;">
             <img id="fish-summary-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Summary.png"
                 style="display: none;">
-
         </div>
-
 
         <div class="fry-button-wrapper" style="display: none;" id="retry-button-container">
             <a id="retry-button">
@@ -277,13 +300,14 @@
 
         <div class="final-button-wrapper" style="display: none;" id="final-continue-button-container">
             <a id="final-continue-button">
-                <img class="default-back" src="./assets/images/UI/Continue_Button.png">
-                <img class="hover-back" src="./assets/images/UI/Continue_Button_Hover.png">
+                <img class="default-back" src="./assets/images/UI/End_Button.png">
+                <img class="hover-back" src="./assets/images/UI/End_Button_Hover.png">
             </a>
         </div>
-        <div class="end-cred" style="display: none;" id="cpdd">
-            <img src="./assets/images/CPDD Frying end credits_v002.jpg">
-        </div>
+        <video playsinline id="cpdd" style="display: none;" preload="metadata">
+            <source src="./assets/videos/Summary/Endcredits_Roll_720p.mp4" type="video/mp4">
+            Your browser does not support the video playsinline tag.
+        </video>
         <div class="summary-UI" style="display: none;" id="summary-ui">
             <img src="./assets/images/UI/Frying_Guru_Summary.png">
         </div>
