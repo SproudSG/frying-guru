@@ -96,7 +96,8 @@ body {
 
 /* ------------------start screen UI-------------------------- */
 #introOpener,
-#cpddIntro {
+#cpddIntro,
+#cpdd {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -181,8 +182,7 @@ body {
     width: 100%;
 }
 
-#fryingIntro,
-#AllSummaryVid {
+#fryingIntro {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -191,6 +191,15 @@ body {
     max-height: 100%;
     height: 100%;
     width: 100%;
+}
+
+#AllSummaryVid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100% !important;
+    min-height: 100%;
 }
 
 #fry-finish-button {
@@ -206,6 +215,12 @@ body {
 #foodPicker {
     max-width: 100%;
     max-height: 100vh;
+    width: 100%;
+    height:100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .food-title-image {
@@ -217,7 +232,8 @@ body {
 
 svg {
     width: 100%;
-    height: 100vh;
+    min-height: 100%;
+    height:100%;
     background-color: #000000;
 
 }
@@ -273,14 +289,34 @@ rect:hover {
     transform: translate(-50%, -50%);
 }
 
+#hover-tick-tofu-ios,
+#hover-tick-fish-ios,
+#hover-tick-duck-ios,
+#hover-tick-spinach-ios {
+    width: 6vw;
+
+}
+
+
+#hover-label-tofu-ios,
+#hover-label-fish-ios,
+#hover-label-spinach-ios,
+#hover-label-duck-ios {
+    height: 10vh;
+}
+
 /* ------------------ Fry Food -------------------------- */
 
 
 #fryFood {
     min-width: 100%;
     min-height: 100%;
-
-
+    width: 100%;
+    height:100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #fry-text {
@@ -351,6 +387,7 @@ rect:hover {
     right: 25vw;
     bottom: 10vw;
 }
+
 #back-button-ios img {
     width: 20vw;
 
@@ -435,19 +472,21 @@ rect:hover {
     ;
 
 }
-#final-continue-button-container{
+
+#final-continue-button-container {
     position: absolute;
-    bottom:26vh;
-    right: 19vw;
+    bottom: 120px;
+    left: 0vw;
     z-index: 10;
 }
 
 .final-button-wrapper {
     position: absolute;
-    bottom: 14vh;
+    bottom: 120px;
     right: 22vw;
     z-index: 10;
 }
+
 
 .final-button-wrapper img {
     width: 20vw;
@@ -485,6 +524,8 @@ rect:hover {
 #summary-button-container-ios img {
     width: 20vw;
 }
+
+
 
 
 /* cpdd */

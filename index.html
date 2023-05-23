@@ -78,20 +78,34 @@
             <!-- tofu -->
             <rect x="83" y="329" fill="#fff" opacity="0" width="583" height="261" id="eggTofu"
                 onmouseenter="showImage('tofu')" onmouseleave="hideImage()"></rect>
+            <image xlink:href="./assets/images/Ingredient/Egg Tofu_label.png" style="display: none;" id="hover-label-tofu-ios" x="250" y="629">
+            </image>
+            <image xlink:href="./assets/images/UI/Tick_Box_Nomal.png" style="display: none;" id="hover-tick-tofu-ios" x="430" y="629"> </image>
             <!-- spinach -->
             <rect x="725" y="144" fill="#fff" opacity="0" width="561" height="286" id="spinach"
                 onmouseenter="showImage('spinach')" onmouseleave="hideImage()"></rect>
+            <image xlink:href="./assets/images/Ingredient/Spinach_label.png" style="display: none;" id="hover-label-spinach-ios" x="880"
+                y="450">
+            </image>
+            <image xlink:href="./assets/images/UI/Tick_Box_Nomal.png" style="display: none;" id="hover-tick-spinach-ios" x="1060" y="450">
+            </image>
             <!-- fish 1 -->
             <rect x="1366" y="97" fill="#fff" opacity="0" width="449" height="403" id="batteredFish1"
                 onmouseenter="showImage('batteredFish')" onmouseleave="hideImage()"></rect>
-            <!-- chicken -->
+            <!-- duck -->
             <rect x="534" y="623" fill="#fff" opacity="0" width="628" height="310" id="duckBreast"
                 onmouseenter="showImage('duckBreast')" onmouseleave="hideImage()"></rect>
+            <image xlink:href="./assets/images/Ingredient/Smoked_label.png" style="display: none;" id="hover-label-duck-ios" x="660" y="960">
+            </image>
+            <image xlink:href="./assets/images/UI/Tick_Box_Nomal.png" style="display: none;" id="hover-tick-duck-ios" x="990" y="960">
+            </image>
             <!-- fish 2 -->
             <rect x="1229" y="490" fill="#fff" opacity="0" width="616" height="330" id="batteredFish2"
                 onmouseenter="showImage('batteredFish')" onmouseleave="hideImage()"></rect>
-
-
+            <image xlink:href="./assets/images/Ingredient/Battered Fish_label.png" style="display: none;" id="hover-label-fish-ios" x="1359" y="820">
+            </image>
+            <image xlink:href="./assets/images/UI/Tick_Box_Nomal.png" style="display: none;" id="hover-tick-fish-ios" x="1679" y="820">
+            </image>
             <foreignObject x="1350" y="905" width="600" height="160">
                 <div class="final-button-wrapper" style="display: none;" id="summary-button-container">
                     <a id="summary-button">
@@ -124,7 +138,9 @@
             Select the most suitable frying method<br> from below based on the criteria
         </p>
         <svg viewBox="0 0 1920 1080">
-            <image width="1920" height="1080" xlink:href="" class="fry-selection-menu-image" id="fry-selection"></image>
+            <image width="1920" height="1080"
+                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
+                class="fry-selection-menu-image" id="fry-selection"></image>
             <foreignObject x="1500" y="200" width="800" height="600">
                 <p id="fry-text">
                     Select the most suitable frying method<br> from below based on the criteria
@@ -253,10 +269,6 @@
             <source src="./assets/videos/BF-Frying/BF - Deepfrying summary_FINAL_720p.mp4" type="video/mp4">
             Your browser does not support the video playsinline tag.
         </video>
-        <video playsinline id="AllSummaryVid" style="display: none;" preload="metadata">
-            <source src="./assets/videos/Summary/summary_coloured_FINAL_720p.mp4" type="video/mp4">
-            Your browser does not support the video playsinline tag.
-        </video>
         <div class="criteria-wrapper" style="display: none;" id="criteria-box-container">
             <img id="tofu-correct-criteria-box" src="./assets/images/ET-Selection/Correct_Criteria.png"
                 style="display: none;">
@@ -283,29 +295,24 @@
             <img id="fish-summary-criteria-box" src="./assets/images/BF-Selection/Battered_Fish_Summary.png"
                 style="display: none;">
         </div>
-
         <div class="fry-button-wrapper" style="display: none;" id="retry-button-container">
             <a id="retry-button">
                 <img class="default-img" src="./assets/images/UI/Retry_Button.png">
                 <img class="hover-img" src="./assets/images/UI/Retry_Button_Hover.png">
             </a>
         </div>
-
         <div class="fry-button-wrapper" style="display: none;" id="continue-button-container">
             <a id="continue-button">
                 <img class="default-img" src="./assets/images/UI/Continue_Button.png">
                 <img class="hover-img" src="./assets/images/UI/Continue_Button_Hover.png">
             </a>
         </div>
+    </div>
 
-        <div class="final-button-wrapper" style="display: none;" id="final-continue-button-container">
-            <a id="final-continue-button">
-                <img class="default-back" src="./assets/images/UI/End_Button.png">
-                <img class="hover-back" src="./assets/images/UI/End_Button_Hover.png">
-            </a>
-        </div>
-        <video playsinline id="cpdd" style="display: none;" preload="metadata">
-            <source src="./assets/videos/Summary/Endcredits_Roll_720p.mp4" type="video/mp4">
+    <!-- summary -->
+    <div>
+        <video playsinline id="AllSummaryVid" style="display: none;" preload="metadata">
+            <source src="./assets/videos/Summary/summary_coloured_FINAL_720p.mp4" type="video/mp4">
             Your browser does not support the video playsinline tag.
         </video>
         <div class="summary-UI" style="display: none;" id="summary-ui">
@@ -317,6 +324,16 @@
                 <img class="hover-back" src="./assets/images/UI/Restart_Button_Hover.png">
             </a>
         </div>
+        <div class="final-button-wrapper" style="display: none;" id="final-continue-button-container">
+            <a id="final-continue-button">
+                <img class="default-back" src="./assets/images/UI/End_Button.png">
+                <img class="hover-back" src="./assets/images/UI/End_Button_Hover.png">
+            </a>
+        </div>
+        <video playsinline id="cpdd" style="display: none;" preload="metadata">
+            <source src="./assets/videos/Summary/Endcredits_Roll_720p.mp4" type="video/mp4">
+            Your browser does not support the video playsinline tag.
+        </video>
     </div>
 
 
