@@ -3,20 +3,6 @@
     src: url('../assets/fonts/Lato/Lato-Regular.ttf');
 }
 
-@font-face {
-    font-family: 'PoppinsBoldItalic';
-    src: url('../assets/fonts/Poppins/Poppins-ExtraBold.ttf');
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('../assets/fonts/Poppins/Poppins-Medium.ttf');
-}
-
-@font-face {
-    font-family: 'PoppinsLight';
-    src: url('../assets/fonts/Poppins/Poppins-Light.ttf');
-}
 
 html {
     background-color: black;
@@ -202,14 +188,6 @@ body {
     min-height: 100%;
 }
 
-#fry-finish-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-
-}
-
-
 
 /* ------------------ Food picker -------------------------- */
 #foodPicker {
@@ -252,14 +230,6 @@ rect:hover {
     transform: translateY(-10px);
     scale: 110%;
     cursor: pointer;
-
-}
-
-.food-text {
-    font-family: 'PoppinsBoldItalic', cursive;
-    font-size: 20px;
-    color: white;
-    text-shadow: 2px 2px #000000;
 
 }
 
@@ -327,7 +297,7 @@ rect:hover {
     font-weight: bold;
     width: 550px;
     font-size: 25px;
-    font-family: Poppins;
+    font-family: Lato;
     border: #94C7E5 solid 10px;
     box-shadow: black 5px 10px;
 }
@@ -342,7 +312,7 @@ rect:hover {
     color: #154E6B;
     width: 35vw;
     font-size: 1.5vw;
-    font-family: Poppins;
+    font-family: Lato;
     border: #94C7E5 solid 10px;
     box-shadow: black 5px 10px;
 }
@@ -474,19 +444,29 @@ rect:hover {
 }
 
 /* sdb fry */
-#duck-summary-criteria-box {
+#duck-summary-criteria-box,
+#tofu-summary-criteria-box {
     margin: 0 auto;
-    width: 42vw;
+    width: 38vw;
+}
+
+#fish-summary-criteria-box,
+#spinach-summary-criteria-box {
+    margin: 0 auto;
+    width: 34vw;
+}
+
+#duck-correct-criteria-box,
+#duck-incorrect-criteria-box {
+    width: 40vw;
+
 }
 
 /* end */
 
 .end-cred img {
     width: 100vw;
-    ;
     height: 100vh;
-    ;
-
 }
 
 #final-continue-button-container {
@@ -539,8 +519,6 @@ rect:hover {
 #summary-button-container-ios img {
     width: 20vw;
 }
-
-
 
 
 /* cpdd */
