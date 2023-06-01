@@ -69,24 +69,23 @@ let completed = []
 
 function isMobileIOS() {
   const userAgent = navigator.userAgent;
-  const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
-  const isMobile = /Mobi|Android/i.test(userAgent);
+  const isMobile = /android|iPad|iPhone|iPod|Windows Phone|iemobile|mobile/i.test(userAgent);
 
-  return isIOS && isMobile;
+  return isMobile;
 }
 
 function isIpadOS() {
   return navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2
 }
 
-if (isMobileIOS() || isIpadOS()) {
-  console.log("true")
+// if (isMobileIOS() || isIpadOS()) {
+  // console.log("true")
   cpddPlayBtn.style.display = "block"
   document.getElementById("cpddIntro").style.display = "none"
 
-} else {
-  document.getElementById("cpddIntro").play();
-}
+// } else {
+//   document.getElementById("cpddIntro").play();
+// }
 
 window.addEventListener("orientationchange", function () {
   if (isMobileIOS() || isIpadOS()) {
@@ -813,6 +812,16 @@ document.getElementById("AllSummaryVid").addEventListener('ended', function () {
   finalContinueButtonContainer.style.display = "block";
   restartBtnContainer.style.display = "block";
   document.getElementById("summary-ui").style.display = "block";
+
+  if (isMobileIOS()) {
+    if (document.getElementById('AllSummaryVid').clientHeight < 300) {
+      finalContinueButtonContainer.style.right = '36vw'
+      restartBtnContainer.style.left = '19vw'
+      finalContinueButtonContainer.style.bottom = '7.5vw'
+      restartBtnContainer.style.bottom = '7.5vw'
+
+    }
+  }
 
 });
 

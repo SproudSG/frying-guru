@@ -105,10 +105,12 @@ body {
 .logo {
     position: absolute;
     width: 50vw;
-    top: 0%;
+    top: 30%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
 }
+
+
 
 .start-button-wrapper {
     margin-left: auto;
@@ -117,6 +119,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 
 .default-img,
 .hover-img {
@@ -138,9 +141,37 @@ body {
 .start-button-wrapper a:hover img.hover-img {
     display: block;
     top: 70vh;
-
     transform: translate(-50%);
     cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .logo {
+        position: absolute;
+        width: 35vw;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .default-img,
+    .hover-img {
+        top: 65vh !important;
+    }
+
+    .start-button-wrapper a:hover img.hover-img {
+        display: block;
+        top: 65vh !important;
+        transform: translate(-50%);
+        cursor: pointer;
+    }
+
+    .fry-button-wrapper a:hover img.hover-img {
+        display: block;
+        top: 65vh !important;
+        transform: translate(-50%, 0%);
+        cursor: pointer;
+    }
 }
 
 
@@ -276,7 +307,6 @@ rect:hover {
 #hover-tick-duck-ios,
 #hover-tick-spinach-ios {
     width: 6vw;
-
 }
 
 
@@ -285,6 +315,29 @@ rect:hover {
 #hover-label-spinach-ios,
 #hover-label-duck-ios {
     height: 10vh;
+}
+
+@media (max-width: 900px) {
+
+
+    #hover-label-tofu-ios,
+    #hover-label-fish-ios,
+    #hover-label-spinach-ios,
+    #hover-label-duck-ios {
+        height: 19vh;
+    }
+
+    #hover-tick-tofu-ios,
+    #hover-tick-fish-ios,
+    #hover-tick-duck-ios,
+    #hover-tick-spinach-ios {
+        width: 9vw;
+    }
+
+    .summary-UI img {
+        max-height: 60vh;
+        max-width: 60vw;
+    }
 }
 
 /* ------------------ Fry Food -------------------------- */
@@ -495,40 +548,6 @@ rect:hover {
     z-index: 10;
 }
 
-@media (max-width: 900px) {
-    #final-continue-button-container {
-        position: absolute;
-        bottom: 100px;
-        right: 27vw;
-        z-index: 10;
-    }
-
-    #restart-button-container {
-        position: absolute;
-        bottom: 100px;
-        left: 10vw;
-        z-index: 10;
-    }
-
-}
-
-@media (max-width: 700px) {
-    #final-continue-button-container {
-        position: absolute;
-        bottom: 80px;
-        right: 20vw;
-        z-index: 10;
-    }
-
-    #restart-button-container {
-        position: absolute;
-        bottom: 80px;
-        left: 3vw;
-        z-index: 10;
-    }
-
-}
-
 .final-button-wrapper img {
     width: 20vw;
 }
@@ -559,13 +578,44 @@ rect:hover {
 #summary-button-container-ios {
     position: absolute;
     bottom: 18% !important;
-    left: 75% !important;
+    left: 72% !important;
 }
 
 #summary-button-container-ios img {
     width: 20vw;
 }
 
+@media (max-width: 900px) {
+    #final-continue-button-container {
+        position: absolute;
+        bottom: 10vw;
+        right: 32vw;
+        z-index: 10;
+    }
+
+    #restart-button-container {
+        position: absolute;
+        bottom: 10vw;
+        left: 15vw;
+        z-index: 10;
+    }
+
+    .final-button-wrapper img {
+        width: 17vw;
+    }
+
+    #summary-button-container-ios {
+        position: absolute;
+        bottom: 18% !important;
+        left: 64% !important;
+    }
+
+    #summary-button-container-ios img {
+        width: 18vw;
+    }
+
+
+}
 
 /* cpdd */
 #cpddPlayBtn {
@@ -581,4 +631,31 @@ rect:hover {
 
 #cpddPlayBtn:hover {
     cursor: pointer;
+}
+
+
+.responsive-div {
+    position: relative;
+    width: 100%;
+
+}
+
+.responsive-div-inner {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    /* 16:9 aspect ratio (9 divided by 16 multiplied by 100) */
+    background-color: #ccc;
+}
+
+.responsive-div-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
 }
